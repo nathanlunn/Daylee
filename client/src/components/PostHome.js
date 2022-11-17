@@ -5,7 +5,7 @@ export default function PostHome() {
   const [todaysPost, setTodaysPost] = useState({});
 
   useEffect(() => {
-    axios.get('http://localhost:8000/posts')
+    axios.get('https://daylee-backend.onrender.com/posts')
     .then(res => {
       setTodaysPost(res.data);
     })
