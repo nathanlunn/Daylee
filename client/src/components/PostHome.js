@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Image} from 'cloudinary-react';
 
 export default function PostHome() {
   const [todaysPost, setTodaysPost] = useState({});
   const [imageSelected, setImageSelected] = useState({});
+  const [imageURL, setImageURL] = useState('');
 
   useEffect(() => {
     axios.get('https://daylee-backend.onrender.com/posts')
@@ -22,7 +24,7 @@ export default function PostHome() {
 
     axios.post('https://api.cloudinary.com/v1_1/dnggclzfd/image/upload', formData)
     .then(res => {
-      console.log(res);
+      setImageURL(res.data.url);
     })
     .catch(err => {
       console.error(err.message);
@@ -42,6 +44,12 @@ export default function PostHome() {
       <button
         onClick={uploadImage}
       >Upload Image</button>
+
+      <Image 
+        cloudName='dnggclzfd'
+        publicId={imageURL}
+      />
     </div>
+
   )
 }
