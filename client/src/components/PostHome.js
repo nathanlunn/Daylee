@@ -17,6 +17,9 @@ export default function PostHome() {
   return (
     <div>
       {todaysPost.description}
+
+      <input type='file'>
+      </input>
     </div>
   )
 }
