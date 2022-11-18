@@ -20,7 +20,7 @@ export default function PostHome() {
     formData.append('file', imageSelected);
     formData.append('upload_preset', 'pho9c5mj');
 
-    axios.post('https://api.cloudinary.come/v1_1/dnggclzfd/image/upload', formData)
+    axios.post('https://api.cloudinary.com/v1_1/dnggclzfd/image/upload', formData)
     .then(res => {
       console.log(res);
     })
