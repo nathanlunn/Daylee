@@ -8,6 +8,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 
+const db = require('./configs/db.js');
+
 const PORT = process.env.PORT || 8000;
 
 const userRouter = require('./routes/user-router.js');
