@@ -12,3 +12,7 @@ INSERT INTO comments (user_id, topic_id, content) VALUES
   (1, 1, "Idk if many people have tried it or not, but I just tried escargot for the first time and... it wasn't that bad!");
 INSERT INTO comments (user_id, topic_id, content) VALUES
   (2, 1, "I agree with Sheela, snails are great!");
+INSERT INTO comments (user_id, topic_id, content) VALUES
+  (2, 2, "The mountains in Banff, Alberta are so gorgeous I couldn't believe my eyes.");
+INSERT INTO comments (user_id, topic_id, content) VALUES 
+  (2, 1, "If you haven't seen the beaches in Bali, you are seriously missing out!");
