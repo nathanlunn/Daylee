@@ -18,12 +18,4 @@ client.connect()
   console.error(err.message);
 });
 
-client.query('select * from users;')
-.then(data => {
-  console.log(data.rows);
-})
-.catch(err => {
-  console.error(err.message);
-})
-
 module.exports = client;
