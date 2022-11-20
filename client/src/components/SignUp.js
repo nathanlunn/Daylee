@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Image} from 'cloudinary-react';
 
 export default function SignUp({}) {
   const [imageSelected, setImageSelected] = useState({});
