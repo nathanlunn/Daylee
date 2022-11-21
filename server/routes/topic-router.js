@@ -16,6 +16,7 @@ router.post('/today', (req, res) => {
           return topic;
         };
       })
+      console.log(topicToday);
       res.send(topicToday);
     })
     .catch(err => {

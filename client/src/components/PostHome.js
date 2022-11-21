@@ -1,22 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-export default function PostHome() {
-  const [todaysPost, setTodaysPost] = useState({});
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/topics')
-      .then(res => {
-        setTodaysPost(res.data);
-      })
-      .catch(err => {
-        console.error(err.message);
-      })
-  }, []);
+export default function PostHome({state, setState}) {
+  console.log(state);
 
   return (
     <div>
-      {todaysPost.description}
+      {state.topic.title}
     </div>
 
   )
