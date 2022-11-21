@@ -1,4 +1,12 @@
+@import '../variables/Variables.scss';
+
 .nav {
   display: flex;
   justify-content: flex-end;
+
+  .nav__link {
+    text-decoration: none;
+    color: $richBlack;
+    margin: 1rem;
+  }
 }

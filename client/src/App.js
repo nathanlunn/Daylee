@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import './styles/App.css';
 import PostHome from './components/PostHome.js';
 import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';

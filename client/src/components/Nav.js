@@ -5,9 +5,9 @@ import '../styles/Nav.css';
 export default function Nav() {
   return (
     <div className='nav'>
-      <Link className='nav__link' to='/'>Home</Link>
-      <Link className='nav__link' to='/login'>Login</Link>
-      <Link className='nav__link' to='/signup'>Sign Up</Link>
+      <Link className='nav__link' to='/'>HOME</Link>
+      <Link className='nav__link' to='/login'>LOGIN</Link>
+      <Link className='nav__link' to='/signup'>SIGN UP</Link>
     </div>
   )
 }

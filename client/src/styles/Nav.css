@@ -1,4 +1,9 @@
 .nav {
   display: flex;
   justify-content: flex-end;
+}
+.nav .nav__link {
+  text-decoration: none;
+  color: #02010A;
+  margin: 1rem;
 }/*# sourceMappingURL=Nav.css.map */
