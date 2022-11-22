@@ -5,7 +5,9 @@
 }
 .topic .topic__image {
   width: 60%;
+  margin-bottom: 1rem;
 }
 .topic .topic__title {
   font-family: "Poppins", sans-serif;
+  color: #02010A;
 }/*# sourceMappingURL=PostHome.css.map */
