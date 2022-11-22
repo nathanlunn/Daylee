@@ -16,7 +16,6 @@ function App() {
 
   useEffect(() => {
     const today = new Date(Date.now()).toString().slice(0, 15);
-    console.log(today);
     setState(prev => ({...prev, dateToday: today}));
     axios.post('http://localhost:8000/topics/today', {today})
       .then(res => {
