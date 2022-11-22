@@ -1,0 +1,11 @@
+.topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.topic .topic__image {
+  width: 60%;
+}
+.topic .topic__title {
+  font-family: "Poppins", sans-serif;
+}/*# sourceMappingURL=PostHome.css.map */

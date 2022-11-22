@@ -1,9 +1,14 @@
 .nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.nav .nav__name {
+  width: 5rem;
 }
 .nav .nav__link {
   text-decoration: none;
   color: #02010A;
   margin: 1rem;
+  font-family: "Padauk", sans-serif;
 }/*# sourceMappingURL=Nav.css.map */
