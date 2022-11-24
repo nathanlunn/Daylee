@@ -4,7 +4,6 @@ import {Image} from 'cloudinary-react';
 import '../styles/PostHome.css';
 
 export default function PostHome({state, setState}) {
-  console.log(state);
 
   return (
     <div className='topic'>

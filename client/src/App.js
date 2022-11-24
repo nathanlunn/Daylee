@@ -24,7 +24,16 @@ function App() {
       .catch(err => {
         console.error(err.message);
       })
+    
+    const data = window.localStorage.getItem('MY_APP_STATE');
+    if ( data !== null ) setState(prev => ({...prev, user: JSON.parse(data)}));
   }, []);
+
+  useEffect(() => {
+    if(state.user.name) {
+      window.localStorage.setItem('MY_APP_STATE', JSON.stringify(state.user));
+    }
+  }, [state.user])
 
   return (
     <Router>
