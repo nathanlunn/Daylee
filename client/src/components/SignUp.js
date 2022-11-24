@@ -9,6 +9,7 @@ export default function SignUp({state, setState}) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [bio, setBio] = useState('');
   const [imageSelected, setImageSelected] = useState({});
   const [imageURL, setImageURL] = useState('');
@@ -40,8 +41,58 @@ export default function SignUp({state, setState}) {
       <input
         className='signup__input singup__input--name'
         value={name}
-        onChange={(e) => {setName(e.target.value)}}
+        onChange={e => {setName(e.target.value)}}
+        placeholder='name'
       ></input>
+
+      <input
+        className='signup__input signup__input--email'
+        value={email}
+        onChange={e => {setEmail(e.target.value)}}
+        placeholder='email'
+      ></input>
+
+      <input
+        className='signup__input signup__input--password'
+        value={password}
+        onChange={e => {setPassword(e.target.value)}}
+        placeholder='password'
+      ></input>
+
+      <input
+        className='signup__input signup__input--confirmPassword'
+        value={confirmPassword}
+        onChange={e => {setConfirmPassword(e.target.value)}}
+        placeholder='confirm password'
+      ></input>
+
+      <input
+        className='signup__input signup__input--bio'
+        value={bio}
+        onChange={e => {setBio(e.target.value)}}
+        placeholder='write a short bio for yourself.'
+      ></input>
+
+      <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
+      <div className='signup__profilePictureContainer'>
+        <input
+          className='signup__findImageButtons'
+          type='file'
+          onChange={(e) => {
+            setImageSelected(e.target.files[0])
+          }}
+        ></input>
+        <button
+          className='signup__uploadImageButton'
+          onClick={uploadImage}
+        >Upload Image</button>
+
+        <Image
+          className='signup__profilePicturePreview'
+          cloudName='dnggclzfd'
+          publicId={imageURL}
+        />
+      </div>
     </div>
   )
 }
