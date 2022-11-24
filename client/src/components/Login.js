@@ -76,6 +76,7 @@ export default function Login({state, setState}) {
           onChange={(e) => {
             setPassword(e.target.value);
           }} 
+          onKeyPress={e => {if(e.key === 'Enter') login()}}
         ></input>
 
         {showPassword ? (<i 
