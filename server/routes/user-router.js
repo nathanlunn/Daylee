@@ -17,7 +17,10 @@ router.post('/login', (req, res) => {
         res.send('There is No Daylee User With That Email.');
         return;
       }
-      console.log(data.rows[0]);
+      const user = data.rows[0];
+      if(user.password !== password) {
+        res.send('That is Not the Correct Password for That Email.');
+      }
     })
 })
 
