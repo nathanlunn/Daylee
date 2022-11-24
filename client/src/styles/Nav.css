@@ -9,6 +9,14 @@
 .nav .nav__link {
   text-decoration: none;
   color: #02010A;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   font-family: "Padauk", sans-serif;
+}
+.nav .nav__link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 0.3rem 1rem;
+}
+.nav .nav__linkBox {
+  display: flex;
 }/*# sourceMappingURL=Nav.css.map */

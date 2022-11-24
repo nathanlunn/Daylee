@@ -28,7 +28,10 @@ function App() {
 
   return (
     <Router>
-      <Nav />
+      <Nav 
+        state={state}
+        setState={setState}
+      />
       <Routes>
         <Route path='/' element={<PostHome
           state={state}

@@ -12,7 +12,17 @@
   .nav__link {
     text-decoration: none;
     color: $richBlack;
-    margin: 1rem;
+    margin: .5rem 1rem;
     font-family: 'Padauk', sans-serif;
+  }
+
+  .nav__link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    margin: .3rem 1rem;
+  }
+
+  .nav__linkBox {
+    display: flex;
   }
 }

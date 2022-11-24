@@ -32,7 +32,7 @@ export default function Login({state, setState}) {
         setState(prev => ({...prev, user: res.data}));
         setTimeout(() => {
           setLoading(false);
-          navigate('/'); 
+          navigate('/');
         })
       })
       .catch(err => {
