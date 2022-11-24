@@ -20,7 +20,7 @@ export default function Login({state, setState}) {
     setLoading(true);
     axios.post('http://localhost:8000/users/login', {email, password})
       .then(res => {
-        
+        console.log(res.data);
       })
       .catch(err => {
         console.error(err.message);
@@ -30,8 +30,11 @@ export default function Login({state, setState}) {
   return (
     <div className='login'>
       {loading && <div className='login__spinner'></div>}
+      
       <h2>{errorMessage}</h2>
+
       <h2 className='login__title'>Login:</h2>
+
       <input 
         className='login__input login__input--email'
         value={email}
@@ -40,7 +43,17 @@ export default function Login({state, setState}) {
           setEmail(e.target.value);
         }} 
       ></input>
+
       <div className='login__passwordContainer'>
+      {/*Strictly to even out center slyling  */}
+      {showPassword ? (<i 
+          class="fa-solid fa-eye-slash"
+          style={{opacity: 0}}
+        ></i>) : (<i
+          class="fa-solid fa-eye"
+          style={{opacity: 0}}
+        ></i>)}
+
         <input 
           className='login__input login__input--password'
           value={password}
@@ -49,6 +62,7 @@ export default function Login({state, setState}) {
             setPassword(e.target.value);
           }} 
         ></input>
+
         {showPassword ? (<i 
           class="fa-solid fa-eye-slash"
           onClick={() => {setShowPassword(false)}}
@@ -57,10 +71,12 @@ export default function Login({state, setState}) {
           onClick={() => {setShowPassword(true)}}
         ></i>)}
       </div>
+
       <button
         className='login__submit'
         onClick={login}
       >Login</button>
+
     </div>
   )
 }
