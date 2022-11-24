@@ -34,7 +34,10 @@ function App() {
           state={state}
           setState={setState}
         />}/>
-        <Route path='/login' element={<Login />}/>
+        <Route path='/login' element={<Login 
+          state={state}
+          setState={setState}
+        />}/>
         <Route path='/signup' element={<SignUp />}/>
       </Routes>
     </Router>

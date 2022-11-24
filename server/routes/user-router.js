@@ -20,7 +20,9 @@ router.post('/login', (req, res) => {
       const user = data.rows[0];
       if(user.password !== password) {
         res.send('That is Not the Correct Password for That Email.');
+        return;
       }
+      res.send(user);
     })
 })
 
