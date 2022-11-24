@@ -20,7 +20,12 @@ export default function Login({state, setState}) {
     setLoading(true);
     axios.post('http://localhost:8000/users/login', {email, password})
       .then(res => {
-        console.log(res.data);
+        if(typeof(res.data) === 'string') {
+          errorAfterLoading(res.data);
+          setTimeout(() => {
+            setErrorMessage('');
+          }, 4000)
+        }
       })
       .catch(err => {
         console.error(err.message);
