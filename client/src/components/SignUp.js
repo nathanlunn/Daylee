@@ -2,40 +2,14 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Image} from 'cloudinary-react';
 
-export default function SignUp({}) {
-  const [imageSelected, setImageSelected] = useState({});
-  const [imageURL, setImageURL] = useState('');
-
-  const uploadImage = (files) => {
-    const formData = new FormData();
-    formData.append('file', imageSelected);
-    formData.append('upload_preset', 'pho9c5mj');
-
-    axios.post('https://api.cloudinary.com/v1_1/dnggclzfd/image/upload', formData)
-    .then(res => {
-      setImageURL(res.data.url);
-    })
-    .catch(err => {
-      console.error(err.message);
-    })
-  };
+export default function SignUp({state, setState}) {
+  const [errorMessage, setErrorMessage] = useState('none');
 
   return (
-    <div>
-      <input 
-        type='file'
-        onChange={(e) => {
-          setImageSelected(e.target.files[0])
-        }}
-      ></input>
-      <button
-        onClick={uploadImage}
-      >Upload Image</button>
-
-      <Image 
-        cloudName='dnggclzfd'
-        publicId={imageURL}
-      />
+    <div className='signup'>
+      <h2
+        className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
+      >{errorMessage}</h2>
     </div>
   )
 }

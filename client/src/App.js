@@ -4,8 +4,9 @@ import './styles/App.css';
 import PostHome from './components/PostHome.js';
 import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
-import axios from 'axios';
 import Nav from './components/Nav.js';
+import UploadImage from './components/UploadImage';
+import axios from 'axios';
 
 function App() {
   const [state, setState] = useState({
@@ -50,7 +51,11 @@ function App() {
           state={state}
           setState={setState}
         />}/>
-        <Route path='/signup' element={<SignUp />}/>
+        <Route path='/signup' element={<SignUp 
+          state={state}
+          setState={setState}
+        />}/>
+        <Route path='/upload' element={<UploadImage />}/>
       </Routes>
     </Router>
   );

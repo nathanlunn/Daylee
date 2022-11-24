@@ -45,7 +45,7 @@ export default function Login({state, setState}) {
       {loading && <div className='login__spinner'></div>}
       
       <h2
-        className={errorMessage === 'none' && 'hide'}
+        className={errorMessage === 'none' ? 'login__error hide' : 'login__error'}
       >{errorMessage}</h2>
 
       <h2 className='login__title'>Login:</h2>
