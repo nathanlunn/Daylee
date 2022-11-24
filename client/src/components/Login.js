@@ -1,15 +1,26 @@
 import axios from 'axios';
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import '../styles/Login.css';
 
 export default function Login({state, setState}) {
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const errorAfterLoading = (errMsg) => {
+    setTimeout(() => {
+      setLoading(false);
+      setErrorMessage(errMsg);
+    }, 1000)
+  }
+
   const login = () => {
+    setLoading(true);
     axios.post('http://localhost:8000/users/login', {email, password})
       .then(res => {
-
+        
       })
       .catch(err => {
         console.error(err.message);
@@ -18,6 +29,8 @@ export default function Login({state, setState}) {
 
   return (
     <div className='login'>
+      {loading && <div className='login__spinner'></div>}
+      <h2>{errorMessage}</h2>
       <h2 className='login__title'>Login:</h2>
       <input 
         className='login__input login__input--email'

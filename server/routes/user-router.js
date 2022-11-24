@@ -13,6 +13,10 @@ router.post('/login', (req, res) => {
 
   db.query('SELECT * FROM users WHERE email = $1;', [email])
     .then(data => {
+      if(!data.rows[0]) {
+        res.send('no email');
+        return;
+      }
       console.log(data.rows[0]);
     })
 })
