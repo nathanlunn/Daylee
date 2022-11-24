@@ -57,6 +57,7 @@ export default function Login({state, setState}) {
         onChange={(e) => {
           setEmail(e.target.value);
         }} 
+        placeholder='email'
       ></input>
 
       <div className='login__passwordContainer'>
@@ -77,6 +78,7 @@ export default function Login({state, setState}) {
             setPassword(e.target.value);
           }} 
           onKeyPress={e => {if(e.key === 'Enter') login()}}
+          placeholder='password'
         ></input>
 
         {showPassword ? (<i 
