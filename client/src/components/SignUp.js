@@ -31,8 +31,30 @@ export default function SignUp({state, setState}) {
     })
   };
 
-  const signup = () => {
+  const blankError = (blankInput) {
+    setLoading(true);
+      errorAfterLoading(`${blankInput} cannot be blank.`);
+      setTimeout(() => {
+        setErrorMessage('none');
+      }, 3000);
+  }
 
+  const errorAfterLoading = (errMsg) => {
+    setTimeout(() => {
+      setLoading(false);
+      setErrorMessage(errMsg);
+    }, 1500)
+  }
+
+  const signup = () => {
+    if(password !== confirmPassword) {
+      setLoading(true);
+      errorAfterLoading('The Two Passwords Given Do Not Match.');
+      setTimeout(() => {
+        setErrorMessage('none');
+      }, 3000);
+      return;
+    }
   }
 
   return (
@@ -50,6 +72,8 @@ export default function SignUp({state, setState}) {
         value={name}
         onChange={e => {setName(e.target.value)}}
         placeholder='name'
+        type='text'
+        required
       ></input>
 
       <input
@@ -57,6 +81,8 @@ export default function SignUp({state, setState}) {
         value={email}
         onChange={e => {setEmail(e.target.value)}}
         placeholder='email'
+        type='email'
+        required
       ></input>
 
       <input
@@ -64,6 +90,8 @@ export default function SignUp({state, setState}) {
         value={password}
         onChange={e => {setPassword(e.target.value)}}
         placeholder='password'
+        type='password'
+        required
       ></input>
 
       <input
@@ -71,6 +99,8 @@ export default function SignUp({state, setState}) {
         value={confirmPassword}
         onChange={e => {setConfirmPassword(e.target.value)}}
         placeholder='confirm password'
+        type='password'
+        required
       ></input>
 
       <input
@@ -78,6 +108,7 @@ export default function SignUp({state, setState}) {
         value={bio}
         onChange={e => {setBio(e.target.value)}}
         placeholder='write a short bio for yourself.'
+        type='text'
       ></input>
 
       <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
