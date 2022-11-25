@@ -11,7 +11,6 @@ export default function SignUp({state, setState}) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [bio, setBio] = useState('');
-  const [imageSelected, setImageSelected] = useState({});
   const [imageURL, setImageURL] = useState('');
   
   const defaultProfilePictureURL = 'https://res.cloudinary.com/dnggclzfd/image/upload/v1669373719/zlhbakiprwuv8hipf2c7.png';
@@ -24,7 +23,6 @@ export default function SignUp({state, setState}) {
     axios.post('https://api.cloudinary.com/v1_1/dnggclzfd/image/upload', formData)
     .then(res => {
       setImageURL(res.data.url);
-      setImageSelected(res.data);
     })
     .catch(err => {
       console.error(err.message);
@@ -67,6 +65,10 @@ export default function SignUp({state, setState}) {
       blankError('password');
       return;
     }
+    let signupObject = {name, email, password, imageURL: (imageURL || defaultProfilePictureURL)};
+    if (bio) signupObject = {...signupObject, bio}
+    console.log(signupObject);
+    // axios.post()
   }
 
   return (
