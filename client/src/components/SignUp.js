@@ -14,14 +14,19 @@ export default function SignUp({state, setState}) {
   const [imageSelected, setImageSelected] = useState({});
   const [imageURL, setImageURL] = useState('');
 
-  const uploadImage = (files) => {
+  useEffect(() => {
+    console.log(imageSelected)
+  },[imageSelected])
+
+  const uploadImage = (image) => {
     const formData = new FormData();
-    formData.append('file', imageSelected);
+    formData.append('file', image);
     formData.append('upload_preset', 'pho9c5mj');
 
     axios.post('https://api.cloudinary.com/v1_1/dnggclzfd/image/upload', formData)
     .then(res => {
       setImageURL(res.data.url);
+      setImageSelected(res.data);
     })
     .catch(err => {
       console.error(err.message);
@@ -79,13 +84,9 @@ export default function SignUp({state, setState}) {
           className='signup__findImageButtons'
           type='file'
           onChange={(e) => {
-            setImageSelected(e.target.files[0])
+            uploadImage(e.target.files[0])
           }}
         ></input>
-        <button
-          className='signup__uploadImageButton'
-          onClick={uploadImage}
-        >Upload Image</button>
 
         <Image
           className='signup__profilePicturePreview'
@@ -93,6 +94,10 @@ export default function SignUp({state, setState}) {
           publicId={imageURL}
         />
       </div>
+
+      <button
+        onClick={signup}
+      >Sign Up</button>
     </div>
   )
 }

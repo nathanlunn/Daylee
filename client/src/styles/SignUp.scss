@@ -25,5 +25,9 @@
   flex-direction: column;
   align-items: center;
 
-
+  .signup__profilePicturePreview {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+  }
 }

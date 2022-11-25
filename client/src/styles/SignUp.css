@@ -32,4 +32,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.signup .signup__profilePicturePreview {
+  width: 4rem;
+  height: 4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=SignUp.css.map */
