@@ -26,4 +26,12 @@ router.post('/login', (req, res) => {
     })
 })
 
+router.post('/signup', (req, res) => {
+  const name = req.body.name
+  const email = req.body.email
+  const password = req.body.password
+  const bio = req.body.bio
+  const imageURL = req.body.imageURL
+})
+
 module.exports = router;
