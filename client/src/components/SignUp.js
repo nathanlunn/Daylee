@@ -31,19 +31,19 @@ export default function SignUp({state, setState}) {
     })
   };
 
-  const blankError = (blankInput) {
+  const errorAfterLoading = (errMsg) => {
+    setTimeout(() => {
+      setLoading(false);
+      setErrorMessage(errMsg);
+    }, 1000)
+  }
+
+  const blankError = (blankInput) => {
     setLoading(true);
       errorAfterLoading(`${blankInput} cannot be blank.`);
       setTimeout(() => {
         setErrorMessage('none');
       }, 3000);
-  }
-
-  const errorAfterLoading = (errMsg) => {
-    setTimeout(() => {
-      setLoading(false);
-      setErrorMessage(errMsg);
-    }, 1500)
   }
 
   const signup = () => {
@@ -53,6 +53,18 @@ export default function SignUp({state, setState}) {
       setTimeout(() => {
         setErrorMessage('none');
       }, 3000);
+      return;
+    }
+    if(name === '') {
+      blankError('name');
+      return;
+    }
+    if(email === '') {
+      blankError('email');
+      return;
+    }
+    if(password === '') {
+      blankError('password');
       return;
     }
   }
