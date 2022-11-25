@@ -13,8 +13,9 @@ export default function Nav({state, setState}) {
         <Link className='nav__link' to='/'>HOME</Link>
         {state.user.name ? (
           <div className='nav__link' onClick={() => {
-            setState(prev => ({...prev, user:{}}))
-            navigate('/')
+            setState(prev => ({...prev, user:{}}));
+            window.localStorage.setItem('MY_APP_STATE', JSON.stringify({}));
+            navigate('/');
           }}>LOGOUT</div>
         ) : (
           <>

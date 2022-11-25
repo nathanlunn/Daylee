@@ -13,10 +13,8 @@ export default function SignUp({state, setState}) {
   const [bio, setBio] = useState('');
   const [imageSelected, setImageSelected] = useState({});
   const [imageURL, setImageURL] = useState('');
-
-  useEffect(() => {
-    console.log(imageSelected)
-  },[imageSelected])
+  
+  const defaultProfilePictureURL = 'https://res.cloudinary.com/dnggclzfd/image/upload/v1669373719/zlhbakiprwuv8hipf2c7.png';
 
   const uploadImage = (image) => {
     const formData = new FormData();
@@ -32,6 +30,10 @@ export default function SignUp({state, setState}) {
       console.error(err.message);
     })
   };
+
+  const signup = () => {
+
+  }
 
   return (
     <div className='signup'>
@@ -91,11 +93,12 @@ export default function SignUp({state, setState}) {
         <Image
           className='signup__profilePicturePreview'
           cloudName='dnggclzfd'
-          publicId={imageURL}
+          publicId={imageURL || defaultProfilePictureURL}
         />
       </div>
 
       <button
+        className='signup__button'
         onClick={signup}
       >Sign Up</button>
     </div>
