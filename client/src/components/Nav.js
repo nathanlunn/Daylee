@@ -12,11 +12,14 @@ export default function Nav({state, setState}) {
       <div className='nav__linkBox'>
         <Link className='nav__link' to='/'>HOME</Link>
         {state.user.name ? (
-          <div className='nav__link' onClick={() => {
-            setState(prev => ({...prev, user:{}}));
-            window.localStorage.setItem('MY_APP_STATE', JSON.stringify({}));
-            navigate('/');
-          }}>LOGOUT</div>
+          <>
+            <Link className='nav__link' to='/profile'>PROFILE</Link>
+            <div className='nav__link nav__link--logout' onClick={() => {
+              setState(prev => ({...prev, user:{}}));
+              window.localStorage.setItem('MY_APP_STATE', JSON.stringify({}));
+              navigate('/');
+            }}>LOGOUT</div>
+          </>
         ) : (
           <>
             <Link className='nav__link' to='/login'>LOGIN</Link>

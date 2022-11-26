@@ -17,6 +17,9 @@
   text-decoration: underline;
   margin: 0.3rem 1rem;
 }
+.nav .nav__link--logout {
+  color: rgb(226, 61, 61);
+}
 .nav .nav__linkBox {
   display: flex;
 }/*# sourceMappingURL=Nav.css.map */
