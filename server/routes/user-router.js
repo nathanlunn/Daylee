@@ -37,20 +37,27 @@ router.post('/signup', (req, res) => {
   const bio = req.body.bio;
   const imageURL = req.body.imageURL;
 
-  bcrypt.hash(password, saltRounds, (err, hash) => {
-    if(err) {
-      console.error(err);
-      return;
-    }
-    console.log(hash);
-    db.query('INSERT INTO users (name, email, password, bio, image) VALUES ($1, $2, $3, $4, $5) RETURNING *;', [name, email, hash, bio, imageURL])
-      .then(data => {
-        res.send(data.rows[0]);
+  db.query('SELECT * FROM users WHERE email = $1;', [email])
+    .then(data => {
+      if (data.rows.length > 0) {
+        res.send('That Email is Already in Use.');
+        return
+      }
+      bcrypt.hash(password, saltRounds, (err, hash) => {
+        if(err) {
+          console.error(err);
+          return;
+        }
+        console.log(hash);
+        db.query('INSERT INTO users (name, email, password, bio, image) VALUES ($1, $2, $3, $4, $5) RETURNING *;', [name, email, hash, bio, imageURL])
+          .then(data => {
+            res.send(data.rows[0]);
+          })
+          .catch(err => {
+            console.error(err.message);
+          })
       })
-      .catch(err => {
-        console.error(err.message);
-      })
-  })
+    })
 })
 
 module.exports = router;

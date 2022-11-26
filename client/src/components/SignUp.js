@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Image} from 'cloudinary-react';
 import '../styles/SignUp.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp({state, setState}) {
   const [errorMessage, setErrorMessage] = useState('none');
@@ -12,6 +13,7 @@ export default function SignUp({state, setState}) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [bio, setBio] = useState('');
   const [imageURL, setImageURL] = useState('');
+  const navigate = useNavigate();
   
   const defaultProfilePictureURL = 'https://res.cloudinary.com/dnggclzfd/image/upload/v1669373719/zlhbakiprwuv8hipf2c7.png';
 
@@ -65,10 +67,22 @@ export default function SignUp({state, setState}) {
       blankError('password');
       return;
     }
+    setLoading(true);
     const signupObject = {name, email, password, bio, imageURL: (imageURL || defaultProfilePictureURL)};
     axios.post('http://localhost:8000/users/signup', signupObject)
       .then(res => {
-        console.log(res.data);
+        if(typeof(res.data) === 'string') {
+          errorAfterLoading(res.data);
+          setTimeout(() => {
+            setErrorMessage('none');
+          }, 3000)
+          return;
+        }
+        setState(prev => ({...prev, user: res.data}));
+        setTimeout(() => {
+          setLoading(false);
+          navigate('/');
+        })
       })
       .catch(err => {
         console.error(err.message);
