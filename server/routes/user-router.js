@@ -20,11 +20,13 @@ router.post('/login', (req, res) => {
         return;
       }
       const user = data.rows[0];
-      if(user.password !== password) {
-        res.send('That is Not the Correct Password for That Email.');
-        return;
-      }
-      res.send(user);
+      bcrypt.compare(password, user.password, (error, response) => {
+        if(!response) {
+          res.send('That is Not the Correct Password for That Email.');
+          return;
+        }
+        res.send(user);
+      })
     })
 })
 
@@ -41,13 +43,13 @@ router.post('/signup', (req, res) => {
       return;
     }
     console.log(hash);
-    // db.query('INSERT INTO users (name, email, password, bio, image) VALUES ($1, $2, $3, $4, $5) RETURN;', [name, email, hash, bio, imageURL])
-    //   .then(res => {
-
-    //   })
-    //   .catch(err => {
-    //     console.error(err.message);
-    //   })
+    db.query('INSERT INTO users (name, email, password, bio, image) VALUES ($1, $2, $3, $4, $5) RETURNING *;', [name, email, hash, bio, imageURL])
+      .then(data => {
+        res.send(data.rows[0]);
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
   })
 })
 
