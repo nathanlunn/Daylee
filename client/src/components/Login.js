@@ -20,6 +20,20 @@ export default function Login({state, setState}) {
 
   const login = () => {
     setLoading(true);
+    if(email === '') {
+      errorAfterLoading('Email Must Not Be Blank');
+      setTimeout(() => {
+        setErrorMessage('none');
+      }, 3000);
+      return;
+    }
+    if(password === '') {
+      errorAfterLoading('Password Must Not Be Blank');
+      setTimeout(() => {
+        setErrorMessage('none');
+      }, 3000);
+      return;
+    }
     axios.post('http://localhost:8000/users/login', {email, password})
       .then(res => {
         if(typeof(res.data) === 'string') {
