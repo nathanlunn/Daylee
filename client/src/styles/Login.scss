@@ -34,7 +34,7 @@
 
   .login__title {
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin: .5rem 0 2rem;
     font-family: 'Padauk', sans-serif;
   }
 
@@ -48,7 +48,7 @@
     width: 20rem;
   }
   .login__input:hover {
-    cursor: cell;
+    cursor: url('../assets/pen.png') 0 60, auto;
   }
   .login__input:focus {
     outline: none;

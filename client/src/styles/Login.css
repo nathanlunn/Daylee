@@ -40,7 +40,7 @@
 }
 .login .login__title {
   font-size: 3rem;
-  margin-bottom: 2rem;
+  margin: 0.5rem 0 2rem;
   font-family: "Padauk", sans-serif;
 }
 .login .login__input {
@@ -53,7 +53,7 @@
   width: 20rem;
 }
 .login .login__input:hover {
-  cursor: cell;
+  cursor: url("../assets/pen.png") 0 60, auto;
 }
 .login .login__input:focus {
   outline: none;
