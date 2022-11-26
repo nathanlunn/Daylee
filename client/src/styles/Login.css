@@ -33,6 +33,17 @@
   flex-direction: column;
   align-items: center;
 }
+.login .login__title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.login .login__input {
+  border: none;
+  border-bottom: solid 2px black;
+  margin: 2rem;
+  font-size: 1.5rem;
+  background-color: red;
+}
 
 .hide {
   opacity: 0;
