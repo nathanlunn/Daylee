@@ -5,6 +5,7 @@ import PostHome from './components/PostHome.js';
 import Login from './components/Login.js';
 import SignUp from './components/SignUp.js';
 import Nav from './components/Nav.js';
+import YourProfile from './components/YourProfile';
 import UploadImage from './components/UploadImage';
 import axios from 'axios';
 
@@ -52,6 +53,10 @@ function App() {
           setState={setState}
         />}/>
         <Route path='/signup' element={<SignUp 
+          state={state}
+          setState={setState}
+        />}/>
+        <Route path='/profile' element={<YourProfile 
           state={state}
           setState={setState}
         />}/>
