@@ -2,6 +2,8 @@ const express =  require('express');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // middleware
 app.use(express.json());
