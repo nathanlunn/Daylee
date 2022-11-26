@@ -65,8 +65,7 @@ export default function SignUp({state, setState}) {
       blankError('password');
       return;
     }
-    let signupObject = {name, email, password, imageURL: (imageURL || defaultProfilePictureURL)};
-    if (bio) signupObject = {...signupObject, bio};
+    const signupObject = {name, email, password, bio, imageURL: (imageURL || defaultProfilePictureURL)};
     axios.post('http://localhost:8000/users/signup', signupObject)
       .then(res => {
 
