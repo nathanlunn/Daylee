@@ -73,6 +73,9 @@
   }
   .login__submit:active {
     box-shadow: none;
+    position: relative;
+    left: -2px;
+    bottom: -2px;
   }
 }
 
