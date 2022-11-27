@@ -91,79 +91,87 @@ export default function SignUp({state, setState}) {
 
   return (
     <div className='signup'>
-      {loading && <div className='signup__spinner'></div>}
+      <div className='signup__paddingContainer'></div>
 
-      <h2
-        className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
-      >{errorMessage}</h2>
+      <div className='signup__inputsContainer'>
+        {loading && <div className='signup__spinner'></div>}
 
-      <h2 className='signup__title'>Sign Up:</h2>
+        <h2
+          className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
+        >{errorMessage}</h2>
 
-      <input
-        className='signup__input singup__input--name'
-        value={name}
-        onChange={e => {setName(e.target.value)}}
-        placeholder='name'
-        type='text'
-        required
-      ></input>
+        <h2 className='signup__title'>Sign Up:</h2>
 
-      <input
-        className='signup__input signup__input--email'
-        value={email}
-        onChange={e => {setEmail(e.target.value)}}
-        placeholder='email'
-        type='email'
-        required
-      ></input>
-
-      <input
-        className='signup__input signup__input--password'
-        value={password}
-        onChange={e => {setPassword(e.target.value)}}
-        placeholder='password'
-        type='password'
-        required
-      ></input>
-
-      <input
-        className='signup__input signup__input--confirmPassword'
-        value={confirmPassword}
-        onChange={e => {setConfirmPassword(e.target.value)}}
-        placeholder='confirm password'
-        type='password'
-        required
-      ></input>
-
-      <input
-        className='signup__input signup__input--bio'
-        value={bio}
-        onChange={e => {setBio(e.target.value)}}
-        placeholder='write a short bio for yourself.'
-        type='text'
-      ></input>
-
-      <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
-      <div className='signup__profilePictureContainer'>
         <input
-          className='signup__findImageButtons'
-          type='file'
-          onChange={(e) => {
-            uploadImage(e.target.files[0])
-          }}
+          className='signup__input singup__input--name'
+          value={name}
+          onChange={e => {setName(e.target.value)}}
+          placeholder='name'
+          type='text'
+          required
         ></input>
 
-        <Image
-          className='signup__profilePicturePreview'
-          cloudName='dnggclzfd'
-          publicId={imageURL || defaultProfilePictureURL}
-        />
+        <input
+          className='signup__input signup__input--email'
+          value={email}
+          onChange={e => {setEmail(e.target.value)}}
+          placeholder='email'
+          type='email'
+          required
+        ></input>
+
+        <input
+          className='signup__input signup__input--password'
+          value={password}
+          onChange={e => {setPassword(e.target.value)}}
+          placeholder='password'
+          type='password'
+          required
+        ></input>
+
+        <input
+          className='signup__input signup__input--confirmPassword'
+          value={confirmPassword}
+          onChange={e => {setConfirmPassword(e.target.value)}}
+          placeholder='confirm password'
+          type='password'
+          required
+        ></input>
+
+        <input
+          className='signup__input signup__input--bio'
+          value={bio}
+          onChange={e => {setBio(e.target.value)}}
+          placeholder='write a short bio for yourself.'
+          type='text'
+        ></input>
+
+        <button
+          className='signup__submit'
+          onClick={signup}
+        >Sign Up</button>
       </div>
 
-      <button
-        className='signup__button'
-        onClick={signup}
-      >Sign Up</button>
+      <div className='signup__pictureContainer'>
+        <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
+        <div className='signup__profilePictureContainer'>
+          <input
+            className='signup__findImageButtons'
+            type='file'
+            onChange={(e) => {
+              uploadImage(e.target.files[0])
+            }}
+          ></input>
+
+          <div className='signup__imageContainer'>
+            <Image
+              className='signup__profilePicturePreview'
+              cloudName='dnggclzfd'
+              publicId={imageURL || defaultProfilePictureURL}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
