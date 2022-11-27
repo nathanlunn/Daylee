@@ -89,10 +89,20 @@
   }
 
   .signup__pictureContainer {
-    padding: 10rem 2rem;
+    padding: 8rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .signup__findImageButtons {
+      padding: 1rem 0 2rem;
+    }
+
+    .signup__imageContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .signup__profilePicturePreview {
       width: 10rem;
