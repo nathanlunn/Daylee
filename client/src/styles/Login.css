@@ -64,28 +64,17 @@
 }
 .login .login__submit {
   margin-top: 3.5rem;
-  border: none;
-  border-left: solid 4px black;
-  border-bottom: solid 4px black;
-  border-right: dashed 2px rgba(0, 0, 0, 0.77);
-  border-top: dashed 2px rgba(0, 0, 0, 0.77);
+  border: solid 2px #02010A;
+  box-shadow: -2px 2px #02010A;
   font-size: 2rem;
   font-family: "Padauk", sans-serif;
   padding: 0.1rem 0.5rem;
 }
 .login .login__submit:hover {
-  border-right: solid 2px rgba(0, 0, 0, 0.77);
-  border-top: solid 2px rgba(0, 0, 0, 0.77);
-  border-left: dashed 4px black;
-  border-bottom: dashed 4px black;
-  font-size: 2rem;
   cursor: pointer;
 }
 .login .login__submit:active {
-  border-left: solid 4px black;
-  border-bottom: solid 4px black;
-  border-right: solid 4px black;
-  border-top: solid 4px black;
+  box-shadow: none;
 }
 
 .hide {
