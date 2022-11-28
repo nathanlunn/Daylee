@@ -25,10 +25,10 @@ export default function YourProfile({state, setState}) {
       <h5 className='profile__title'>email:</h5>
       <h2 className='profile__info'>{state.user.email}</h2>
 
-      <h5 className='profile__title'>name:</h5>
-      <div className='profile__nameContainer'>
+      <h5 className='profile__title'>bio:</h5>
+      <div className='profile__bioContainer'>
         <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
-        <h2 className='profile__info'>{state.user.name}</h2>
+        <h2 className='profile__info'>{state.user.bio}</h2>
         <i class="fa-solid fa-pen-to-square profile__icon"></i>
       </div>
     </div>

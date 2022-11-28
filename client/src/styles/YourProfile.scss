@@ -1,10 +1,19 @@
+@import '../variables/Variables.scss';
+
 .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  .fa-solid {
+    margin: 0 .7rem;
+  }
   .fa-solid:hover {
     cursor: pointer;
+  }
+
+  .profile__info {
+    color: $richBlack;
   }
 
   .profile__imageContainer {
@@ -31,5 +40,10 @@
     display: flex;
 
     
+  }
+
+  .profile__bioContainer {
+    display: flex;
+    width: 30%;
   }
 }

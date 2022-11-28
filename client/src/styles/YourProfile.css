@@ -3,8 +3,14 @@
   flex-direction: column;
   align-items: center;
 }
+.profile .fa-solid {
+  margin: 0 0.7rem;
+}
 .profile .fa-solid:hover {
   cursor: pointer;
+}
+.profile .profile__info {
+  color: #02010A;
 }
 .profile .profile__imageContainer {
   display: flex;
@@ -25,4 +31,8 @@
 }
 .profile .profile__nameContainer {
   display: flex;
+}
+.profile .profile__bioContainer {
+  display: flex;
+  width: 30%;
 }/*# sourceMappingURL=YourProfile.css.map */
