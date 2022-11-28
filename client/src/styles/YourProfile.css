@@ -11,6 +11,7 @@
 }
 .profile .profile__info {
   color: #02010A;
+  font-family: "Josefin Sans", sans-serif;
 }
 .profile .profile__imageContainer {
   display: flex;
@@ -26,7 +27,7 @@
   margin: 0 1rem;
 }
 .profile .profile__title {
-  margin-top: 1rem;
+  margin: 1rem 0 0.2rem;
   color: rgb(73, 68, 68);
 }
 .profile .profile__nameContainer {

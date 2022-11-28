@@ -14,6 +14,7 @@
 
   .profile__info {
     color: $richBlack;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
   .profile__imageContainer {
@@ -32,7 +33,7 @@
 
 
   .profile__title {
-    margin-top: 1rem;
+    margin: 1rem 0 .2rem;
     color: rgb(73, 68, 68);
   }
 
