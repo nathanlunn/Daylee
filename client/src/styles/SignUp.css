@@ -68,11 +68,15 @@
   outline: none;
   border-bottom: solid 3px black;
 }
+.signup .signup__input--bio {
+  height: 5rem;
+  font-size: 1rem;
+}
 .signup .fa-solid:hover {
   cursor: pointer;
 }
 .signup .signup__submit {
-  margin-top: 3.5rem;
+  margin-top: 2rem;
   border: solid 2px #02010A;
   box-shadow: -2px 2px #02010A;
   font-size: 2rem;
@@ -104,6 +108,9 @@
 }
 .signup .signup__pictureContainer .signup__profilePicturePreview {
   width: 10rem;
+  height: 10rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hide {

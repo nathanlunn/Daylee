@@ -138,13 +138,13 @@ export default function SignUp({state, setState}) {
           required
         ></input>
 
-        <input
+        <textarea
           className='signup__input signup__input--bio'
           value={bio}
           onChange={e => {setBio(e.target.value)}}
           placeholder='write a short bio for yourself.'
           type='text'
-        ></input>
+        ></textarea>
 
         <button
           className='signup__submit'
