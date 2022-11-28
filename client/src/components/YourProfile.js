@@ -6,18 +6,20 @@ export default function YourProfile({state, setState}) {
   return (
     <div className='profile'>
       <div className='profile__imageContainer'>
+        <i class="fa-solid fa-pen-to-square profile__imageIcon hide"></i>
         <Image
           className='profile__image'
           cloudName='dnggclzfd'
           publicId={state.user.image}
         />
+        <i class="fa-solid fa-pen-to-square profile__imageIcon"></i>
       </div>
 
       <h5 className='profile__title'>name:</h5>
       <div className='profile__nameContainer'>
-        <i class="fa-solid fa-pen-to-square hide"></i>
+        <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
         <h2 className='profile__info'>{state.user.name}</h2>
-        <i class="fa-solid fa-pen-to-square"></i>
+        <i class="fa-solid fa-pen-to-square profile__icon"></i>
       </div>
       
       <h5 className='profile__title'>email:</h5>
@@ -25,9 +27,9 @@ export default function YourProfile({state, setState}) {
 
       <h5 className='profile__title'>name:</h5>
       <div className='profile__nameContainer'>
-        <i class="fa-solid fa-pen-to-square hide"></i>
+        <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
         <h2 className='profile__info'>{state.user.name}</h2>
-        <i class="fa-solid fa-pen-to-square"></i>
+        <i class="fa-solid fa-pen-to-square profile__icon"></i>
       </div>
     </div>
   )

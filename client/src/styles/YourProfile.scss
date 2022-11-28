@@ -3,11 +3,24 @@
   flex-direction: column;
   align-items: center;
 
-  .profile__image {
-    width: 15rem;
-    height: 15rem;
-    object-fit: cover;
+  .fa-solid:hover {
+    cursor: pointer;
   }
+
+  .profile__imageContainer {
+    display: flex;
+    
+    .profile__image {
+      width: 15rem;
+      height: 15rem;
+      object-fit: cover;
+    }
+    .profile__imageIcon {
+      font-size: 3rem;
+      margin: 0 1rem;
+    }
+  }
+
 
   .profile__title {
     margin-top: 1rem;
@@ -17,6 +30,6 @@
   .profile__nameContainer{
     display: flex;
 
-    .
+    
   }
 }
