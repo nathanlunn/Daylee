@@ -23,11 +23,45 @@ export default function YourProfile({state, setState}) {
     })
   };
 
+  const changeProfile = (type, content) => {
+    
+  };
+
   return (
     <div className='profile'>
       <div className='profile__imageContainer'>
         {changeImage ? (
           <div className='profile__imageEdit'>
+            <div className='profile__changePictureContainer hide'>
+              <input
+                className='profile__chooseNewPicture'
+                type='file'
+                onChange={(e) => {
+                  uploadImage(e.target.files[0])
+                }}
+              ></input>
+
+              <div className='profile__buttonContainer'>
+                <button
+                  className='profile__button profile__button--cancel'
+                  onClick={() => {
+                    setImageURL('');
+                    setChangeImage(false);
+                  }}
+                >cancel</button>
+                <button
+                  className='profile__button profile__button--confirm'
+                  onClick={() => {changeProfile('image', imageURL)}}
+                >confirm</button>
+              </div>
+            </div>
+
+            <Image
+              className='profile__image'
+              cloudName='dnggclzfd'
+              publicId={imageURL || state.user.image}
+            />
+
             <div className='profile__changePictureContainer'>
               <input
                 className='profile__chooseNewPicture'
@@ -36,12 +70,21 @@ export default function YourProfile({state, setState}) {
                   uploadImage(e.target.files[0])
                 }}
               ></input>
+              
+              <div className='profile__buttonContainer'>
+                <button
+                  className='profile__button profile__button--cancel'
+                  onClick={() => {
+                    setImageURL('');
+                    setChangeImage(false);
+                  }}
+                >cancel</button>
+                <button
+                  className='profile__button profile__button--confirm'
+                  onClick={() => {changeProfile('image', imageURL)}}
+                >confirm</button>
+              </div>
             </div>
-            <Image
-              className='profile__image'
-              cloudName='dnggclzfd'
-              publicId={imageURL || state.user.image}
-            />
           </div>
         ) : (
           <>
