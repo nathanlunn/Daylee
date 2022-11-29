@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../styles/YourProfile.css';
 import {Image} from 'cloudinary-react';
+import axios from 'axios';
 
 export default function YourProfile({state, setState}) {
   const [changeImage, setChangeImage] = useState(false);
@@ -8,11 +9,34 @@ export default function YourProfile({state, setState}) {
   const [changeBio, setChangeBio] = useState(false);
   const [imageURL, setImageURL] = useState('');
 
+  const uploadImage = (image) => {
+    const formData = new FormData();
+    formData.append('file', image);
+    formData.append('upload_preset', 'pho9c5mj');
+
+    axios.post('https://api.cloudinary.com/v1_1/dnggclzfd/image/upload', formData)
+    .then(res => {
+      setImageURL(res.data.url);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
+  };
+
   return (
     <div className='profile'>
       <div className='profile__imageContainer'>
         {changeImage ? (
           <div>
+            <div className='profile__changePictureContainer hide'>
+              <input
+                className='profile__chooseNewPicture'
+                type='file'
+                onChange={(e) => {
+                  uploadImage(e.target.files[0])
+                }}
+              ></input>
+            </div>
             <Image
               className='profile__image'
               cloudName='dnggclzfd'
