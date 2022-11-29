@@ -106,11 +106,11 @@ export default function YourProfile({state, setState}) {
       
       {changeName ? (
         <div>
-          <h5 className='profile__title'>name:</h5>
           <div className='profile__nameContainer'>
-            <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
-            <h2 className='profile__info'>{state.user.name}</h2>
-            <div className='profile__buttonContainer'>
+            <h5 className='profile__title'>name:</h5>
+
+            <div className='profile__nameContentContainer'>
+            <div className='profile__buttonContainer hide'>
                 <button
                   className='profile__button profile__button--cancel'
                   onClick={() => {
@@ -123,6 +123,27 @@ export default function YourProfile({state, setState}) {
                   onClick={() => {changeProfile('name', name)}}
                 >confirm</button>
               </div>
+
+              <input 
+                className='profile__changeInput profile__changeInput--name'
+                value={name}
+                onChange={(e) => {setName(e.target.value)}}
+              ></input>
+
+              <div className='profile__buttonContainer'>
+                <button
+                  className='profile__button profile__button--cancel'
+                  onClick={() => {
+                    setName(state.user.name);
+                    setChangeName(false);
+                  }}
+                >cancel</button>
+                <button
+                  className='profile__button profile__button--confirm'
+                  onClick={() => {changeProfile('name', name)}}
+                >confirm</button>
+              </div>
+            </div>
           </div>
         </div>
       ) : (
