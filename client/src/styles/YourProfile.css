@@ -36,6 +36,11 @@
 }
 .profile .profile__nameContainer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile .profile__nameContainer .profile__nameContentContainer {
+  display: flex;
 }
 .profile .profile__bioContainer {
   display: flex;
