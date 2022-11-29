@@ -27,6 +27,9 @@
   font-size: 3rem;
   margin: 0 1rem;
 }
+.profile .profile__imageContainer .profile__imageEdit {
+  display: flex;
+}
 .profile .profile__title {
   margin: 1rem 0 0.2rem;
   color: rgb(73, 68, 68);

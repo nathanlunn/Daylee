@@ -27,8 +27,8 @@ export default function YourProfile({state, setState}) {
     <div className='profile'>
       <div className='profile__imageContainer'>
         {changeImage ? (
-          <div>
-            <div className='profile__changePictureContainer hide'>
+          <div className='profile__imageEdit'>
+            <div className='profile__changePictureContainer'>
               <input
                 className='profile__chooseNewPicture'
                 type='file'
