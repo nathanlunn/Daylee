@@ -56,6 +56,9 @@
   .profile__changeInput:hover {
     cursor: url('../assets/pen.png') 0 60, auto;
   }
+  .profile__changeInput:focus {
+    outline: none;
+  }
 
   .profile__nameContainer{
     display: flex;

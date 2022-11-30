@@ -48,6 +48,9 @@
 .profile .profile__changeInput:hover {
   cursor: url("../assets/pen.png") 0 60, auto;
 }
+.profile .profile__changeInput:focus {
+  outline: none;
+}
 .profile .profile__nameContainer {
   display: flex;
   flex-direction: column;
