@@ -8,8 +8,8 @@ export default function YourProfile({state, setState}) {
   const [changeName, setChangeName] = useState(false);
   const [changeBio, setChangeBio] = useState(false);
   const [imageURL, setImageURL] = useState('');
-  const [name, setName] = useState(state.user.name);
-  const [bio, setBio] = useState(state.user.bio);
+  const [name, setName] = useState('');
+  const [bio, setBio] = useState('');
 
   const uploadImage = (image) => {
     const formData = new FormData();
@@ -113,7 +113,7 @@ export default function YourProfile({state, setState}) {
 
               <input 
                 className='profile__changeInput profile__changeInput--name'
-                value={name}
+                value={name || state.user.name}
                 onChange={(e) => {setName(e.target.value)}}
               ></input>
 
@@ -170,7 +170,7 @@ export default function YourProfile({state, setState}) {
 
               <textarea 
                 className='profile__changeInput profile__changeInput--bio'
-                value={bio}
+                value={bio || state.user.bio}
                 onChange={(e) => {setBio(e.target.value)}}
               ></textarea>
 
