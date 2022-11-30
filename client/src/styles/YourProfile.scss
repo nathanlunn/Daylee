@@ -71,10 +71,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
 
-    .profile_bioContentContainer {
+    .profile__bioContentContainer {
       display: flex;
+
+      .profile__info--bio {
+        width: 15rem;
+      }
     }
+
+    .profile__changeInput--bio {
+      width: 15rem;
+      height: 5rem;
+      text-align: left;
+    }
+
   }
 }

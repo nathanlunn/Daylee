@@ -38,22 +38,14 @@ export default function YourProfile({state, setState}) {
               <input
                 className='profile__chooseNewPicture'
                 type='file'
-                onChange={(e) => {
-                  uploadImage(e.target.files[0])
-                }}
               ></input>
 
               <div className='profile__buttonContainer'>
                 <button
                   className='profile__button profile__button--cancel'
-                  onClick={() => {
-                    setImageURL('');
-                    setChangeImage(false);
-                  }}
                 >cancel</button>
                 <button
                   className='profile__button profile__button--confirm'
-                  onClick={() => {changeProfile('image', imageURL)}}
                 >confirm</button>
               </div>
             </div>
@@ -113,14 +105,9 @@ export default function YourProfile({state, setState}) {
             <div className='profile__buttonContainer hide'>
                 <button
                   className='profile__button profile__button--cancel'
-                  onClick={() => {
-                    setName(state.user.name);
-                    setChangeName(false);
-                  }}
                 >cancel</button>
                 <button
                   className='profile__button profile__button--confirm'
-                  onClick={() => {changeProfile('name', name)}}
                 >confirm</button>
               </div>
 
@@ -171,25 +158,21 @@ export default function YourProfile({state, setState}) {
       {changeBio ? (
         <div className='profile__bioContainer'>
           <h5 className='profile__title'>bio:</h5>
-          <div class='profile_bioContentContainer'>
+          <div class='profile__bioContentContainer'>
           <div className='profile__buttonContainer hide'>
                 <button
                   className='profile__button profile__button--cancel'
-                  onClick={() => {
-                    setName(state.user.name);
-                    setChangeName(false);
-                  }}
                 >cancel</button>
                 <button
                   className='profile__button profile__button--confirm'
                 >confirm</button>
               </div>
 
-              <input 
-                className='profile__changeInput profile__changeInput--name'
+              <textarea 
+                className='profile__changeInput profile__changeInput--bio'
                 value={bio}
                 onChange={(e) => {setBio(e.target.value)}}
-              ></input>
+              ></textarea>
 
               <div className='profile__buttonContainer'>
                 <button
@@ -209,10 +192,10 @@ export default function YourProfile({state, setState}) {
       ) : (
         <div className='profile__bioContainer'>
           <h5 className='profile__title'>bio:</h5>
-          <div class='profile_bioContentContainer'>
+          <div class='profile__bioContentContainer'>
             <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
 
-            <h2 className='profile__info'>{state.user.bio}</h2>
+            <h2 className='profile__info profile__info--bio'>{state.user.bio}</h2>
 
             <i
               class="fa-solid fa-pen-to-square profile__icon"
