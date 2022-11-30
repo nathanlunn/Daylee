@@ -60,4 +60,18 @@ router.post('/signup', (req, res) => {
     })
 })
 
+router.post('/change/image', (req, res) => {
+
+})
+
+router.post('/change/name', (req, res) => {
+  const name = req.body.content;
+  
+  // db.query()
+})
+
+router.post('/change/bio', (req, res) => {
+
+})
+
 module.exports = router;

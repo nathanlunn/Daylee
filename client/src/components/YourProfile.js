@@ -26,7 +26,13 @@ export default function YourProfile({state, setState}) {
   };
 
   const changeProfile = (type, content) => {
-    
+    axios.post(`http://localhost:8000/users/change/${type}`, {content})
+      .then(res => {
+
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
   };
 
   return (
