@@ -60,6 +60,28 @@
     outline: none;
   }
 
+  .profile__buttonContainer {
+  display: flex;
+  flex-direction: column;
+
+    .profile__button {
+      border: solid 2px $richBlack;
+      border-radius: 2px;
+      margin: .2rem;
+      font-family: 'Padauk', sans-serif;
+      width: 4rem;
+    }
+    .profile__button:hover {
+      cursor: pointer;
+    }
+    .profile__button--cancel {
+      color: rgb(237, 79, 79);
+    }
+    .profile__button--confirm {
+      color: rgb(70, 168, 70);
+    }
+  }
+
   .profile__nameContainer{
     display: flex;
     flex-direction: column;

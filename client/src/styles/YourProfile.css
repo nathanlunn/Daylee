@@ -51,6 +51,26 @@
 .profile .profile__changeInput:focus {
   outline: none;
 }
+.profile .profile__buttonContainer {
+  display: flex;
+  flex-direction: column;
+}
+.profile .profile__buttonContainer .profile__button {
+  border: solid 2px #02010A;
+  border-radius: 2px;
+  margin: 0.2rem;
+  font-family: "Padauk", sans-serif;
+  width: 4rem;
+}
+.profile .profile__buttonContainer .profile__button:hover {
+  cursor: pointer;
+}
+.profile .profile__buttonContainer .profile__button--cancel {
+  color: rgb(237, 79, 79);
+}
+.profile .profile__buttonContainer .profile__button--confirm {
+  color: rgb(70, 168, 70);
+}
 .profile .profile__nameContainer {
   display: flex;
   flex-direction: column;
