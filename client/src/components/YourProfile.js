@@ -168,15 +168,59 @@ export default function YourProfile({state, setState}) {
       <h5 className='profile__title'>email:</h5>
       <h2 className='profile__info'>{state.user.email}</h2>
 
-      <h5 className='profile__title'>bio:</h5>
-      <div className='profile__bioContainer'>
-        <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
-        <h2 className='profile__info'>{state.user.bio}</h2>
-        <i
-          class="fa-solid fa-pen-to-square profile__icon"
-          onClick={() => setChangeBio(true)}
-        ></i>
-      </div>
+      {changeBio ? (
+        <div className='profile__bioContainer'>
+          <h5 className='profile__title'>bio:</h5>
+          <div class='profile_bioContentContainer'>
+          <div className='profile__buttonContainer hide'>
+                <button
+                  className='profile__button profile__button--cancel'
+                  onClick={() => {
+                    setName(state.user.name);
+                    setChangeName(false);
+                  }}
+                >cancel</button>
+                <button
+                  className='profile__button profile__button--confirm'
+                >confirm</button>
+              </div>
+
+              <input 
+                className='profile__changeInput profile__changeInput--name'
+                value={bio}
+                onChange={(e) => {setBio(e.target.value)}}
+              ></input>
+
+              <div className='profile__buttonContainer'>
+                <button
+                  className='profile__button profile__button--cancel'
+                  onClick={() => {
+                    setBio(state.user.bio);
+                    setChangeBio(false);
+                  }}
+                >cancel</button>
+                <button
+                  className='profile__button profile__button--confirm'
+                  onClick={() => {changeProfile('bio', bio)}}
+                >confirm</button>
+              </div>
+          </div>
+        </div>
+      ) : (
+        <div className='profile__bioContainer'>
+          <h5 className='profile__title'>bio:</h5>
+          <div class='profile_bioContentContainer'>
+            <i class="fa-solid fa-pen-to-square profile__icon hide"></i>
+
+            <h2 className='profile__info'>{state.user.bio}</h2>
+
+            <i
+              class="fa-solid fa-pen-to-square profile__icon"
+              onClick={() => setChangeBio(true)}
+            ></i>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

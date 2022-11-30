@@ -58,5 +58,10 @@
 }
 .profile .profile__bioContainer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 30%;
+}
+.profile .profile__bioContainer .profile_bioContentContainer {
+  display: flex;
 }/*# sourceMappingURL=YourProfile.css.map */
