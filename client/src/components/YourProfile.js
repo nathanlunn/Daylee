@@ -7,9 +7,9 @@ export default function YourProfile({state, setState}) {
   const [changeImage, setChangeImage] = useState(false);
   const [changeName, setChangeName] = useState(false);
   const [changeBio, setChangeBio] = useState(false);
-  const [imageURL, setImageURL] = useState('');
-  const [name, setName] = useState('');
-  const [bio, setBio] = useState('');
+  const [imageURL, setImageURL] = useState(state.user.image);
+  const [name, setName] = useState(state.user.name);
+  const [bio, setBio] = useState(state.user.bio);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('none');
 
@@ -39,13 +39,34 @@ export default function YourProfile({state, setState}) {
       setChangeImage(false);
       return;
     }
+
     if (type === 'image' && imageURL === '') {
       setLoading(true);
       errorAfterLoading('No Image Was Given.');
       setTimeout(() => {
         setErrorMessage('none');
-      }, 3000)
+      }, 3000);
+      return;
     }
+
+    if (type ==='name' && (name === state.user.name)) {
+      setChangeName(false);
+      return;
+    }
+
+    if (type === 'name' && name === '') {
+      setLoading(true);
+      errorAfterLoading('Name Cannot Be Blank.');
+      setTimeout(() => {
+        setErrorMessage('none');
+      }, 3000);
+      return;
+    }
+
+    if (type === 'bio' && bio === state.user.bio) {
+      
+    }
+
     axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
 
