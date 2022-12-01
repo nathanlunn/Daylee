@@ -66,6 +66,8 @@ router.post('/change/image', (req, res) => {
 
 router.post('/change/name', (req, res) => {
   const name = req.body.content;
+  const userID = req.body.userID;
+  console.log(userID);
   
   // db.query()
 })

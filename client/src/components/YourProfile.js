@@ -26,7 +26,7 @@ export default function YourProfile({state, setState}) {
   };
 
   const changeProfile = (type, content) => {
-    axios.post(`http://localhost:8000/users/change/${type}`, {content})
+    axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
 
       })
