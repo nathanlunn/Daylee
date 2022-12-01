@@ -166,7 +166,7 @@ export default function YourProfile({state, setState}) {
 
               <input 
                 className='profile__changeInput profile__changeInput--name'
-                value={name || state.user.name}
+                value={name === undefined ? state.user.name : name}
                 onChange={(e) => {setName(e.target.value)}}
               ></input>
 
