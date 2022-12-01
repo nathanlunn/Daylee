@@ -10,6 +10,8 @@ export default function YourProfile({state, setState}) {
   const [imageURL, setImageURL] = useState('');
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('none');
 
   const uploadImage = (image) => {
     const formData = new FormData();
@@ -25,7 +27,25 @@ export default function YourProfile({state, setState}) {
     })
   };
 
+  const errorAfterLoading = (errMsg) => {
+    setTimeout(() => {
+      setLoading(false);
+      setErrorMessage(errMsg);
+    }, 1000)
+  }
+
   const changeProfile = (type, content) => {
+    if (type === 'image' && imageURL === state.user.image) {
+      setChangeImage(false);
+      return;
+    }
+    if (type === 'image' && imageURL === '') {
+      setLoading(true);
+      errorAfterLoading('No Image Was Given.');
+      setTimeout(() => {
+        setErrorMessage('none');
+      }, 3000)
+    }
     axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
 
@@ -37,6 +57,12 @@ export default function YourProfile({state, setState}) {
 
   return (
     <div className='profile'>
+      {loading && <div className='profile__spinner'></div>}
+
+      <h2
+        className={errorMessage === 'none' ? 'profile__error hide' : 'profile__error'}
+      >{errorMessage}</h2>
+
       <div className='profile__imageContainer'>
         {changeImage ? (
           <div className='profile__imageEdit'>
