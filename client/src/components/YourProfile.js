@@ -64,12 +64,14 @@ export default function YourProfile({state, setState}) {
     }
 
     if (type === 'bio' && bio === state.user.bio) {
-      
+      setChangeBio(false);
+      return;
     }
 
     axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
-
+        const newName = res.data[0].name;
+        setState(prev => ({...prev, user: {...state.user, name: newName}}));
       })
       .catch(err => {
         console.error(err.message);
@@ -223,7 +225,7 @@ export default function YourProfile({state, setState}) {
 
               <textarea 
                 className='profile__changeInput profile__changeInput--bio'
-                value={bio || state.user.bio}
+                value={bio === undefined ? state.user.bio : bio}
                 onChange={(e) => {setBio(e.target.value)}}
               ></textarea>
 

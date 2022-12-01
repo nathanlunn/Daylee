@@ -67,9 +67,14 @@ router.post('/change/image', (req, res) => {
 router.post('/change/name', (req, res) => {
   const name = req.body.content;
   const userID = req.body.userID;
-  console.log(userID);
   
-  // db.query()
+  db.query('UPDATE users SET name = $1 WHERE id = $2 RETURNING name;', [name, userID])
+    .then(data => {
+      res.send(data.rows);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
 })
 
 router.post('/change/bio', (req, res) => {
