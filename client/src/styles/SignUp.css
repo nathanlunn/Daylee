@@ -71,6 +71,10 @@
 .signup .signup__input--bio {
   height: 5rem;
   font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+.signup .signup__bioCharacterCount {
+  align-self: flex-end;
 }
 .signup .fa-solid:hover {
   cursor: pointer;
@@ -115,4 +119,8 @@
 
 .hide {
   opacity: 0;
+}
+
+.red {
+  color: rgb(193, 38, 38);
 }/*# sourceMappingURL=SignUp.css.map */

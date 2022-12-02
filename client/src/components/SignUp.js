@@ -157,7 +157,9 @@ export default function SignUp({state, setState}) {
           placeholder='write a short bio for yourself.'
           type='text'
         ></textarea>
-        <h3 className='signup__bioCharacterCount'>{`${bioCharacterCount} / 100`}</h3>
+        <h3 
+          className={bioCharacterCount > 100 ? 'signup__bioCharacterCount red' :'signup__bioCharacterCount'}
+        >{`${bioCharacterCount} / 100`}</h3>
 
         <button
           className='signup__submit'
