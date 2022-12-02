@@ -61,7 +61,17 @@ router.post('/signup', (req, res) => {
 })
 
 router.post('/change/image', (req, res) => {
+  const image = req.body.content;
+  const userID = req.body.userID;
 
+  db.query('UPDATE users SET image = $1 WHERE id = $2 RETURNING image;', [image, userID])
+    .then(data => {
+      data.rows[0].type = 'image';
+      res.send(data.rows);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
 })
 
 router.post('/change/name', (req, res) => {
