@@ -70,6 +70,7 @@ router.post('/change/name', (req, res) => {
   
   db.query('UPDATE users SET name = $1 WHERE id = $2 RETURNING name;', [name, userID])
     .then(data => {
+      data.rows[0].type = 'name';
       res.send(data.rows);
     })
     .catch(err => {
