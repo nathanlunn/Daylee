@@ -13,6 +13,7 @@ export default function SignUp({state, setState}) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [bio, setBio] = useState('');
   const [imageURL, setImageURL] = useState('');
+  const [bioCharacterCount, setBioCharacterCount] = useState(0);
   const navigate = useNavigate();
   
   const defaultProfilePictureURL = 'https://res.cloudinary.com/dnggclzfd/image/upload/v1669373719/zlhbakiprwuv8hipf2c7.png';
@@ -65,6 +66,14 @@ export default function SignUp({state, setState}) {
     }
     if(password === '') {
       blankError('password');
+      return;
+    }
+    if(bioCharacterCount > 100) {
+      setLoading(true);
+      errorAfterLoading('Bio Must Be 100 Characters or Less.');
+      setTimeout(() => {
+        setErrorMessage('none');
+      },3000)
       return;
     }
     setLoading(true);
@@ -141,10 +150,14 @@ export default function SignUp({state, setState}) {
         <textarea
           className='signup__input signup__input--bio'
           value={bio}
-          onChange={e => {setBio(e.target.value)}}
+          onChange={e => {
+            setBio(e.target.value);
+            setBioCharacterCount(e.target.value.length);
+          }}
           placeholder='write a short bio for yourself.'
           type='text'
         ></textarea>
+        <h3 className='signup__bioCharacterCount'>{`${bioCharacterCount} / 100`}</h3>
 
         <button
           className='signup__submit'
