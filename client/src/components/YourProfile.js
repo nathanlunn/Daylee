@@ -31,7 +31,7 @@ export default function YourProfile({state, setState}) {
     setTimeout(() => {
       setLoading(false);
       setErrorMessage(errMsg);
-    }, 1000)
+    }, 800)
   }
 
   const changeProfile = (type, content) => {

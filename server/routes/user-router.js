@@ -89,7 +89,17 @@ router.post('/change/name', (req, res) => {
 })
 
 router.post('/change/bio', (req, res) => {
-
+  const bio = req.body.content;
+  const userID = req.body.userID;
+  
+  db.query('UPDATE users SET bio = $1 WHERE id = $2 RETURNING bio;', [bio, userID])
+    .then(data => {
+      data.rows[0].type = 'bio';
+      res.send(data.rows);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
 })
 
 module.exports = router;
