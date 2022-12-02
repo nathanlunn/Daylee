@@ -71,9 +71,12 @@ export default function YourProfile({state, setState}) {
     axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
         const result = res.data[0];
+        if(result.type === 'image') {
+          setState(prev => ({...prev, user: {...state.user, image: result.image}}));
+        }
         if(result.type === 'name') {
-            setState(prev => ({...prev, user: {...state.user, name: result.name}}));
-            return;
+          setState(prev => ({...prev, user: {...state.user, name: result.name}}));
+          return;
         }
         if(result.type === 'bio') {
           setState(prev => ({...prev, user: {...state.user, bio: result.bio}}));
