@@ -77,7 +77,7 @@ export default function YourProfile({state, setState}) {
           setTimeout(() => {
             setLoading(false);
             setChangeImage(false);
-          }, 1000);
+          }, 800);
           return;
         }
         if(result.type === 'name') {
@@ -85,11 +85,15 @@ export default function YourProfile({state, setState}) {
           setTimeout(() => {
             setLoading(false);
             setChangeName(false);
-          }, 1000);
+          }, 800);
           return;
         }
         if(result.type === 'bio') {
           setState(prev => ({...prev, user: {...state.user, bio: result.bio}}));
+          setTimeout(() => {
+            setLoading(false);
+            setChangeBio(false);
+          }, 800);
         }
       })
       .catch(err => {
