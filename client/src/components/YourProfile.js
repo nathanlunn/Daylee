@@ -69,6 +69,15 @@ export default function YourProfile({state, setState}) {
       return;
     }
 
+    if (bio.length > 100) {
+      setLoading(true);
+      errorAfterLoading('Bio Must Be 100 Characters or Less.');
+      setTimeout(() => {
+        setErrorMessage('none');
+      },3000)
+      return;
+    }
+
     axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
         const result = res.data[0];
