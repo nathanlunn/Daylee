@@ -12,6 +12,7 @@ export default function YourProfile({state, setState}) {
   const [bio, setBio] = useState(state.user.bio);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('none');
+  const [bioCharacterCount, setBioCharacterCount] = useState(state.user.bio.length);
 
   const uploadImage = (image) => {
     const formData = new FormData();
@@ -249,8 +250,14 @@ export default function YourProfile({state, setState}) {
               <textarea 
                 className='profile__changeInput profile__changeInput--bio'
                 value={bio === undefined ? state.user.bio : bio}
-                onChange={(e) => {setBio(e.target.value)}}
+                onChange={(e) => {
+                  setBio(e.target.value);
+                  setBioCharacterCount(e.target.value.length);
+                }}
               ></textarea>
+              <h3 
+                className={bioCharacterCount > 100 ? 'profile__bioCharacterCount red' :'profile__bioCharacterCount'}
+              >{`${bioCharacterCount} / 100`}</h3>
 
               <div className='profile__buttonContainer'>
                 <button
