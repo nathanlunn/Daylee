@@ -4,6 +4,18 @@ import {Image} from 'cloudinary-react';
 import '../styles/PostHome.css';
 
 export default function PostHome({state, setState}) {
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/topics/comments/${state.topic.id}`)
+      .then(res => {
+        console.log(res.data);
+        setComments(res.data);
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
+  }, [state.topic])
 
   return (
     <div className='topic'>
@@ -14,6 +26,5 @@ export default function PostHome({state, setState}) {
       />
       <h2 className='topic__title'>{state.topic.title}</h2>
     </div>
-
   )
 }

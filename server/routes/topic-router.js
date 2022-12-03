@@ -2,8 +2,20 @@ const express = require('express');
 const router = express.Router();
 const db = require('../configs/db.js');
 
-router.get('/', (req, res) => {
-  res.send('')
+router.get('/comments/:id', (req, res) => {
+  const topicID = req.params.id;
+
+  if(topicID === undefined) {
+    return;
+  }
+
+  db.query('SELECT * FROM comments WHERE topic_id = $1', [topicID])
+    .then(data => {
+      res.send(data.rows);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
 })
 
 router.post('/today', (req, res) => {
@@ -16,7 +28,6 @@ router.post('/today', (req, res) => {
           return topic;
         };
       })
-      console.log(topicToday);
       res.send(topicToday);
     })
     .catch(err => {
