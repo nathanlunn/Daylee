@@ -247,17 +247,19 @@ export default function YourProfile({state, setState}) {
                 >confirm</button>
               </div>
 
-              <textarea 
-                className='profile__changeInput profile__changeInput--bio'
-                value={bio === undefined ? state.user.bio : bio}
-                onChange={(e) => {
-                  setBio(e.target.value);
-                  setBioCharacterCount(e.target.value.length);
-                }}
-              ></textarea>
-              <h3 
-                className={bioCharacterCount > 100 ? 'profile__bioCharacterCount red' :'profile__bioCharacterCount'}
-              >{`${bioCharacterCount} / 100`}</h3>
+              <div className='profile__editBioContainer'>
+                <textarea 
+                  className='profile__changeInput profile__changeInput--bio'
+                  value={bio === undefined ? state.user.bio : bio}
+                  onChange={(e) => {
+                    setBio(e.target.value);
+                    setBioCharacterCount(e.target.value.length);
+                  }}
+                ></textarea>
+                <h3 
+                  className={bioCharacterCount > 100 ? 'profile__bioCharacterCount red' :'profile__bioCharacterCount'}
+                >{`${bioCharacterCount} / 100`}</h3>
+              </div>
 
               <div className='profile__buttonContainer'>
                 <button

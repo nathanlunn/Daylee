@@ -134,11 +134,24 @@
       }
     }
 
-    .profile__changeInput--bio {
-      width: 15rem;
-      height: 5rem;
-      text-align: left;
+    .profile__editBioContainer {
+      display: flex;
+      flex-direction: column;
+
+      .profile__changeInput--bio {
+        width: 15rem;
+        height: 5rem;
+        text-align: left;
+      }
+
+      .profile__bioCharacterCount {
+        align-self: flex-end;
+      }
     }
 
   }
+}
+
+.red {
+  color: rgb(193, 38, 38);
 }

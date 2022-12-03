@@ -127,8 +127,19 @@
 .profile .profile__bioContainer .profile__bioContentContainer .profile__info--bio {
   width: 15rem;
 }
-.profile .profile__bioContainer .profile__changeInput--bio {
+.profile .profile__bioContainer .profile__editBioContainer {
+  display: flex;
+  flex-direction: column;
+}
+.profile .profile__bioContainer .profile__editBioContainer .profile__changeInput--bio {
   width: 15rem;
   height: 5rem;
   text-align: left;
+}
+.profile .profile__bioContainer .profile__editBioContainer .profile__bioCharacterCount {
+  align-self: flex-end;
+}
+
+.red {
+  color: rgb(193, 38, 38);
 }/*# sourceMappingURL=YourProfile.css.map */
