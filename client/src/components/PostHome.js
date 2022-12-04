@@ -20,6 +20,10 @@ export default function PostHome({state, setState}) {
       })
   }, [state.topic])
 
+  const addComment = () => {
+    
+  }
+
   const commentList = comments.map(comment => {
     return (
       <Comment
@@ -54,9 +58,14 @@ export default function PostHome({state, setState}) {
         ></textarea>
 
         <div className='topic__newCommentBottom'>
-        <h3 
-          className={commentCharacterCount > 100 ? 'topic__commentCharacterCount red' :'topic__commentCharacterCount'}
-        >{`${commentCharacterCount} / 100`}</h3>
+          <h3 
+            className={commentCharacterCount > 100 ? 'topic__commentCharacterCount red' :'topic__commentCharacterCount'}
+          >{`${commentCharacterCount} / 100`}</h3>
+
+          <button
+            className='topic__commentButton'
+            onClick={addComment}
+          >Comment</button>
         </div>
       </div>
 
