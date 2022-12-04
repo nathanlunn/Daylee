@@ -11,6 +11,26 @@
   font-family: "Poppins", sans-serif;
   color: #02010A;
 }
+.topic .topic__newCommentContainer {
+  margin: 1rem 0;
+  width: 40%;
+}
+.topic .topic__newCommentContainer .topic__callToComment {
+  margin-bottom: 0.5rem;
+}
+.topic .topic__newCommentContainer .topic__newCommentInput {
+  width: 100%;
+  border: 2px solid black;
+  resize: none;
+}
+.topic .topic__newCommentContainer .topic__newCommentBottom {
+  display: flex;
+  justify-content: space-between;
+}
 .topic .topic__commentsList {
   width: 50%;
+}
+
+.red {
+  color: red;
 }/*# sourceMappingURL=PostHome.css.map */

@@ -15,7 +15,39 @@
     color: $richBlack;
   }
 
+  .topic__newCommentContainer {
+    margin: 1rem 0;
+    width: 40%;
+
+    .topic__callToComment {
+      margin-bottom: .5rem;
+    }
+
+    .topic__newCommentInput {
+      width: 100%;
+      border: 2px solid black;
+      resize: none;
+    }
+
+    .topic__newCommentBottom {
+      display: flex;
+      justify-content: space-between;
+
+      .topic__commentCharacterCount {
+
+      }
+
+      .topic__commentButton {
+
+      }
+    }
+  }
+
   .topic__commentsList {
     width: 50%;
   }
+}
+
+.red {
+  color: red;
 }
