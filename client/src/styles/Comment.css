@@ -1,0 +1,15 @@
+.comment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.comment .comment__commentorInfo {
+  display: flex;
+}
+.comment .comment__commentorInfo .comment__commentorImage {
+  width: 2rem;
+  height: 2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=Comment.css.map */

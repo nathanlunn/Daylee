@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Image} from 'cloudinary-react';
+import '../styles/Comment.css';
 
 export default function Comment({userID, content}) {
   const [commentor, setCommentor] = useState({})
@@ -7,7 +9,7 @@ export default function Comment({userID, content}) {
   useEffect(() => {
     axios.get(`http://localhost:8000/users/${userID}`)
       .then(res => {
-        console.log(res.data);
+        setCommentor(res.data);
       })
       .catch(err => {
         console.error(err.message);
@@ -16,7 +18,15 @@ export default function Comment({userID, content}) {
 
   return (
     <div className='comment'>
-      <h3 className='comment__user'>{}</h3>
+      <div className='comment__commentorInfo'>
+        <Image
+          className='comment__commentorImage'
+          cloudName='dnggclzfd'
+          publicId={commentor.image}
+        />
+
+        <h3 className='comment__commentorName'>{commentor.name}</h3>
+      </div>
     </div>
   )
 }
