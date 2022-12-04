@@ -27,6 +27,8 @@ export default function Comment({userID, content}) {
 
         <h3 className='comment__commentorName'>{commentor.name}</h3>
       </div>
+      
+      <p className='comment__content'>{content}</p>
     </div>
   )
 }

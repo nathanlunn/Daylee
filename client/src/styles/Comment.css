@@ -3,13 +3,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 1rem 0;
 }
 .comment .comment__commentorInfo {
   display: flex;
+  align-items: flex-end;
 }
 .comment .comment__commentorInfo .comment__commentorImage {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   -o-object-fit: cover;
      object-fit: cover;
+  margin-right: 0.4rem;
+}
+.comment .comment__commentorInfo .comment__commentorName {
+  font-size: 2rem;
 }/*# sourceMappingURL=Comment.css.map */

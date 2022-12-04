@@ -10,4 +10,7 @@
 .topic .topic__title {
   font-family: "Poppins", sans-serif;
   color: #02010A;
+}
+.topic .topic__commentsList {
+  width: 50%;
 }/*# sourceMappingURL=PostHome.css.map */
