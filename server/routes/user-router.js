@@ -102,4 +102,9 @@ router.post('/change/bio', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+  const userID = req.params.id;
+  console.log(userID);
+})
+
 module.exports = router;
