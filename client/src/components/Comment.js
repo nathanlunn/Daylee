@@ -7,7 +7,7 @@ export default function Comment({userID, content}) {
   useEffect(() => {
     axios.get(`http://localhost:8000/users/${userID}`)
       .then(res => {
-
+        console.log(res.data);
       })
       .catch(err => {
         console.error(err.message);

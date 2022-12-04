@@ -104,7 +104,14 @@ router.post('/change/bio', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const userID = req.params.id;
-  console.log(userID);
+  
+  db.query('SELECT * FROM users WHERE id = $1;', [userID])
+    .then(data => {
+      res.send(data.rows[0]);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
 })
 
 module.exports = router;
