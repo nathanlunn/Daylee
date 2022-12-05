@@ -21,6 +21,10 @@ export default function PostHome({state, setState}) {
   }, [state.topic])
 
   const addComment = () => {
+    if (commentCharacterCount === 0 || commentCharacterCount > 100) {
+      return;
+    }
+
     
   }
 
@@ -63,7 +67,7 @@ export default function PostHome({state, setState}) {
           >{`${commentCharacterCount} / 100`}</h3>
 
           <button
-            className='topic__commentButton'
+            className={(commentCharacterCount === 0 || commentCharacterCount > 100) ? 'topic__commentbutton notAvailable' : 'topic__commentButton'}
             onClick={addComment}
           >Comment</button>
         </div>
