@@ -20,7 +20,7 @@
 }
 .topic .topic__newCommentContainer .topic__newCommentInput {
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid #02010A;
   resize: none;
 }
 .topic .topic__newCommentContainer .topic__newCommentInput:hover {
@@ -28,14 +28,14 @@
 }
 .topic .topic__newCommentContainer .topic__newCommentInput:focus {
   outline: none;
-  border-bottom: solid 3px black;
+  border-bottom: solid 3px #02010A;
 }
 .topic .topic__newCommentContainer .topic__newCommentBottom {
   display: flex;
   justify-content: space-between;
 }
 .topic .topic__newCommentContainer .topic__newCommentBottom .topic__commentButton {
-  border: solid 2px black;
+  border: solid 2px #02010A;
   box-shadow: -2px 2px #02010A;
 }
 .topic .topic__newCommentContainer .topic__newCommentBottom .topic__commentButton:hover {

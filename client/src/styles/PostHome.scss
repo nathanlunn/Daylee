@@ -25,7 +25,7 @@
 
     .topic__newCommentInput {
       width: 100%;
-      border: 2px solid black;
+      border: 2px solid $richBlack;
       resize: none;
     }
     .topic__newCommentInput:hover {
@@ -33,7 +33,7 @@
     }
     .topic__newCommentInput:focus {
       outline: none;
-      border-bottom: solid 3px black;
+      border-bottom: solid 3px $richBlack;
     }
 
     .topic__newCommentBottom {
@@ -45,7 +45,7 @@
       }
 
       .topic__commentButton {
-        border: solid 2px black;
+        border: solid 2px $richBlack;
         box-shadow: -2px 2px $richBlack;
       }
       .topic__commentButton:hover {
