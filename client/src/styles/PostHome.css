@@ -23,6 +23,13 @@
   border: 2px solid black;
   resize: none;
 }
+.topic .topic__newCommentContainer .topic__newCommentInput:hover {
+  cursor: url("../assets/pen.png") 0 60, auto;
+}
+.topic .topic__newCommentContainer .topic__newCommentInput:focus {
+  outline: none;
+  border-bottom: solid 3px black;
+}
 .topic .topic__newCommentContainer .topic__newCommentBottom {
   display: flex;
   justify-content: space-between;
