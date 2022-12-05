@@ -34,6 +34,27 @@
   display: flex;
   justify-content: space-between;
 }
+.topic .topic__newCommentContainer .topic__newCommentBottom .topic__commentButton {
+  border: solid 2px black;
+  box-shadow: -2px 2px #02010A;
+}
+.topic .topic__newCommentContainer .topic__newCommentBottom .topic__commentButton:hover {
+  cursor: pointer;
+}
+.topic .topic__newCommentContainer .topic__newCommentBottom .topic__commentButton:active {
+  box-shadow: none;
+  position: relative;
+  bottom: -2px;
+  left: -2px;
+}
+.topic .topic__newCommentContainer .topic__newCommentBottom .unavailable {
+  box-shadow: none;
+  position: relative;
+  bottom: -2px;
+  left: -2px;
+  color: rgb(104, 101, 101);
+  border: solid 2px rgb(104, 101, 101);
+}
 .topic .topic__commentsList {
   width: 50%;
 }

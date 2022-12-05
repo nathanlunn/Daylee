@@ -45,7 +45,26 @@
       }
 
       .topic__commentButton {
+        border: solid 2px black;
+        box-shadow: -2px 2px $richBlack;
+      }
+      .topic__commentButton:hover {
+        cursor: pointer;
+      }
+      .topic__commentButton:active {
+        box-shadow: none;
+        position: relative;
+        bottom: -2px;
+        left: -2px;
+      }
 
+      .unavailable {
+        box-shadow: none;
+        position: relative;
+        bottom: -2px;
+        left: -2px;
+        color: rgb(104, 101, 101);
+        border: solid 2px rgb(104, 101, 101);
       }
     }
   }

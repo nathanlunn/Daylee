@@ -25,7 +25,7 @@ export default function PostHome({state, setState}) {
       return;
     }
 
-    
+
   }
 
   const commentList = comments.map(comment => {
@@ -67,7 +67,7 @@ export default function PostHome({state, setState}) {
           >{`${commentCharacterCount} / 100`}</h3>
 
           <button
-            className={(commentCharacterCount === 0 || commentCharacterCount > 100) ? 'topic__commentbutton notAvailable' : 'topic__commentButton'}
+            className={(commentCharacterCount === 0 || commentCharacterCount > 100) ? 'topic__commentButton unavailable' : 'topic__commentButton'}
             onClick={addComment}
           >Comment</button>
         </div>
