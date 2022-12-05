@@ -25,7 +25,7 @@ export default function PostHome({state, setState}) {
       return;
     }
 
-
+    axios.post('http://localhost:8000/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
   }
 
   const commentList = comments.map(comment => {

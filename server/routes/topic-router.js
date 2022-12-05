@@ -35,4 +35,17 @@ router.post('/today', (req, res) => {
     })
 })
 
+router.post('/comments/add', (req, res) => {
+  const userID = req.body.userID;
+  const topicID = req.body.topicID;
+  const comment = req.body.comment;
+
+  db.query('INSERT INTO comments (user_id, topic_id, content) VALUES ($1, $2, $3) RETURNING *', [userID, topicID, comment])
+    .then(data => {
+      res.send(data.rows[0]);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
+})
 module.exports = router;
