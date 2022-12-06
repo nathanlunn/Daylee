@@ -14,8 +14,7 @@ export default function PostHome({state, setState}) {
   useEffect(() => {
     axios.get(`http://localhost:8000/topics/comments/${state.topic.id}`)
       .then(res => {
-        console.log(res.data);
-        setComments(res.data);
+        setComments(res.data.sort((a, b) => {return b.id - a.id}));
       })
       .catch(err => {
         console.error(err.message);
@@ -29,7 +28,7 @@ export default function PostHome({state, setState}) {
 
     axios.post('http://localhost:8000/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
       .then(res => {
-        setComments(commentList.push(res.data));
+        setComments(commentList.unshift(res.data));
       })
       .catch(err => {
         console.error(err.message);
