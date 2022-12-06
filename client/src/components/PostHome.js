@@ -9,6 +9,7 @@ export default function PostHome({state, setState}) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [commentCharacterCount, setCommentCharacterCount] = useState(0);
+  const [commentReload, setCommentReload] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function PostHome({state, setState}) {
       .catch(err => {
         console.error(err.message);
       })
-  }, [state.topic])
+  }, [state.topic, commentReload])
 
   const addComment = () => {
     if (commentCharacterCount === 0 || commentCharacterCount > 100) {
@@ -28,7 +29,15 @@ export default function PostHome({state, setState}) {
 
     axios.post('http://localhost:8000/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
       .then(res => {
-        setComments(commentList.unshift(res.data));
+        const newComment = res.data;
+        commentList.unshift(<Comment 
+          key={newComment.id}
+          userID={newComment.user_id}
+          content={newComment.content}
+        />)
+        setNewComment('');
+        setCommentCharacterCount(0);
+
       })
       .catch(err => {
         console.error(err.message);
@@ -44,10 +53,6 @@ export default function PostHome({state, setState}) {
       />
     )
   })
-
-  useEffect(() => {
-    navigate('/');
-  }, [commentList])
 
   return (
     <div className='topic'>
@@ -67,7 +72,8 @@ export default function PostHome({state, setState}) {
           value={newComment}
           onChange={e => {
             setNewComment(e.target.value);
-            setCommentCharacterCount(e.target.value.length)
+            setCommentCharacterCount(e.target.value.length);
+            setCommentReload(commentReload + 1);
           }}
 
         ></textarea>
