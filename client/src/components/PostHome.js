@@ -3,11 +3,13 @@ import axios from 'axios';
 import {Image} from 'cloudinary-react';
 import '../styles/PostHome.css';
 import Comment from './Comment.js';
+import {useNavigate} from 'react-router-dom';
 
 export default function PostHome({state, setState}) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [commentCharacterCount, setCommentCharacterCount] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/topics/comments/${state.topic.id}`)
@@ -26,6 +28,12 @@ export default function PostHome({state, setState}) {
     }
 
     axios.post('http://localhost:8000/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
+      .then(res => {
+        setComments(commentList.push(res.data));
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
   }
 
   const commentList = comments.map(comment => {
@@ -37,6 +45,10 @@ export default function PostHome({state, setState}) {
       />
     )
   })
+
+  useEffect(() => {
+    navigate('/');
+  }, [commentList])
 
   return (
     <div className='topic'>
