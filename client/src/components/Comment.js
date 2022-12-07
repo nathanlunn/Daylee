@@ -5,7 +5,7 @@ import '../styles/Comment.css';
 import thumbsUp from '../assets/thumbsUp.png';
 import thumbsDown from '../assets/thumbsDown.png';
 
-export default function Comment({userID, content}) {
+export default function Comment({userID, content, state}) {
   const [commentor, setCommentor] = useState({})
 
   useEffect(() => {
@@ -16,7 +16,11 @@ export default function Comment({userID, content}) {
       .catch(err => {
         console.error(err.message);
       })
-  }, [])
+  }, []);
+
+  const upvote = () => {
+
+  }
 
   return (
     <div className='comment'>
@@ -33,13 +37,15 @@ export default function Comment({userID, content}) {
         
         <p className='comment__content'>{content}</p>
       </div>
-      <div className='comment__upvoteContainer'>
-        <img 
-          src={thumbsUp}
-          className='comment__upvoteButton'
-          onClick={upvote}
-        />
-      </div>
+      {state.user.id !== userID && 
+        (<div className='comment__upvoteContainer'>
+          <img 
+            src={thumbsUp}
+            className='comment__upvoteButton'
+            onClick={upvote}
+          />
+        </div>)
+      }
     </div>
   )
 }
