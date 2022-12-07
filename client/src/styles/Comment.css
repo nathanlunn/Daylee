@@ -5,17 +5,20 @@
   align-items: flex-start;
   margin: 1rem 0;
 }
-.comment .comment__commentorInfo {
+.comment .comment__container {
+  width: 90%;
+}
+.comment .comment__container .comment__commentorInfo {
   display: flex;
   align-items: flex-end;
 }
-.comment .comment__commentorInfo .comment__commentorImage {
+.comment .comment__container .comment__commentorInfo .comment__commentorImage {
   width: 3rem;
   height: 3rem;
   -o-object-fit: cover;
      object-fit: cover;
   margin-right: 0.4rem;
 }
-.comment .comment__commentorInfo .comment__commentorName {
+.comment .comment__container .comment__commentorInfo .comment__commentorName {
   font-size: 2rem;
 }/*# sourceMappingURL=Comment.css.map */
