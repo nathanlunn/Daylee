@@ -30,11 +30,7 @@ export default function PostHome({state, setState}) {
     axios.post('http://localhost:8000/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
       .then(res => {
         const newComment = res.data;
-        commentList.unshift(<Comment 
-          key={newComment.id}
-          userID={newComment.user_id}
-          content={newComment.content}
-        />)
+        comments.unshift(newComment);
         setNewComment('');
         setCommentCharacterCount(0);
 
@@ -53,6 +49,8 @@ export default function PostHome({state, setState}) {
       />
     )
   })
+
+  console.log(commentList); 
 
   return (
     <div className='topic'>
