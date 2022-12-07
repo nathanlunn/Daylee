@@ -44,6 +44,7 @@ export default function PostHome({state, setState}) {
     return (
       <Comment
         key={comment.id}
+        commentID={comment.id}
         userID={comment.user_id}
         content={comment.content}
         state={state}

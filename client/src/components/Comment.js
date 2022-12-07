@@ -5,7 +5,7 @@ import '../styles/Comment.css';
 import thumbsUp from '../assets/thumbsUp.png';
 import thumbsDown from '../assets/thumbsDown.png';
 
-export default function Comment({key, userID, content, state}) {
+export default function Comment({commentID, userID, content, state}) {
   const [commentor, setCommentor] = useState({})
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Comment({key, userID, content, state}) {
   }, []);
 
   const upvote = () => {
-
+    axios.post('http://localhost:8000/upvote', {commentID, userID: state.user.id})
   }
 
   return (
