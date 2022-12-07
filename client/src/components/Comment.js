@@ -5,7 +5,7 @@ import '../styles/Comment.css';
 import thumbsUp from '../assets/thumbsUp.png';
 import thumbsDown from '../assets/thumbsDown.png';
 
-export default function Comment({userID, content, state}) {
+export default function Comment({key, userID, content, state}) {
   const [commentor, setCommentor] = useState({})
 
   useEffect(() => {
