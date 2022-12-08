@@ -13,9 +13,12 @@ export default function Comment({commentID, userID, content, state}) {
     axios.get(`http://localhost:8000/users/${userID}`)
       .then(res => {
         setCommentor(res.data);
-        axios.get(`http://localhost:8000/upvotes`)
+
+        axios.post(`http://localhost:8000/upvotes`, {commentID, userID: state.user.id})
             .then(res => {
-              console.log(res.data);
+              if(res.data.length > 0) {
+                setAlreadyUpvoted(true);
+              }
             })
             .catch(err => {
               console.error(err.message);
@@ -27,6 +30,10 @@ export default function Comment({commentID, userID, content, state}) {
   }, []);
 
   const upvote = () => {
+    if(alreadyUpvoted) {
+      console.log('already upvoted');
+      return;
+    }
     axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
       .then(res => {
         setAlreadyUpvoted(true);
@@ -55,7 +62,7 @@ export default function Comment({commentID, userID, content, state}) {
         (<div className='comment__upvoteContainer'>
           <img 
             src={thumbsUp}
-            className='comment__upvoteButton'
+            className={alreadyUpvoted ? 'comment__upvoteButton grey' :'comment__upvoteButton'}
             onClick={upvote}
           />
         </div>)

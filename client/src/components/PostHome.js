@@ -10,7 +10,7 @@ export default function PostHome({state, setState}) {
   const [newComment, setNewComment] = useState('');
   const [commentCharacterCount, setCommentCharacterCount] = useState(0);
   const [commentReload, setCommentReload] = useState(0);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8000/topics/comments/${state.topic.id}`)
@@ -51,8 +51,6 @@ export default function PostHome({state, setState}) {
       />
     )
   })
-
-  console.log(commentList); 
 
   return (
     <div className='topic'>
