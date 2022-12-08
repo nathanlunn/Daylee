@@ -7,11 +7,19 @@ import thumbsDown from '../assets/thumbsDown.png';
 
 export default function Comment({commentID, userID, content, state}) {
   const [commentor, setCommentor] = useState({})
+  const [alreadyUpvoted, setAlreadyUpvoted] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/users/${userID}`)
       .then(res => {
         setCommentor(res.data);
+        axios.get(`http://localhost:8000/upvotes/${userID}`)
+            .then(res => {
+
+            })
+            .catch(err => {
+              console.error(err.message);
+            })
       })
       .catch(err => {
         console.error(err.message);
