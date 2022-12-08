@@ -13,7 +13,7 @@ export default function Comment({commentID, userID, content, state}) {
     axios.get(`http://localhost:8000/users/${userID}`)
       .then(res => {
         setCommentor(res.data);
-        axios.get(`http://localhost:8000/upvotes/${userID}`)
+        axios.get(`http://localhost:8000/upvotes`)
             .then(res => {
 
             })
@@ -27,7 +27,7 @@ export default function Comment({commentID, userID, content, state}) {
   }, []);
 
   const upvote = () => {
-    axios.post('http://localhost:8000/upvote', {commentID, userID: state.user.id})
+    axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
   }
 
   return (

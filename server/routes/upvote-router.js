@@ -6,6 +6,19 @@ router.post('/', (req, res) => {
   const commentID = req.body.commentID;
   const userID = req.body.userID;
 
+  db.query('SELECT * FROM upvotes WHERE user_id = $1 AND comment_id = $2', [userID, commentID])
+    .then(data => {
+      res.send(data.rows);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
+})
+
+router.post('/add', (req, res) => {
+  const commentID = req.body.commentID;
+  const userID = req.body.userID;
+
   // console.log(`user id: ${userID}, comment id: ${commentID}`);
   db.query('INSERT INTO upvotes (user_id, comment_id) VALUES ($1, $2);', [userID, commentID])
     .then(data => {

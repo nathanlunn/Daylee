@@ -18,7 +18,7 @@ const upvoteRouter = require('./routes/upvote-router.js');
 
 app.use('/users', userRouter);
 app.use('/topics', topicRouter);
-app.use('/upvote', upvoteRouter);
+app.use('/upvotes', upvoteRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
