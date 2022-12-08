@@ -15,7 +15,7 @@ export default function Comment({commentID, userID, content, state}) {
         setCommentor(res.data);
         axios.get(`http://localhost:8000/upvotes`)
             .then(res => {
-
+              console.log(res.data);
             })
             .catch(err => {
               console.error(err.message);
@@ -28,6 +28,12 @@ export default function Comment({commentID, userID, content, state}) {
 
   const upvote = () => {
     axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
+      .then(res => {
+        setAlreadyUpvoted(true);
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
   }
 
   return (
@@ -45,7 +51,7 @@ export default function Comment({commentID, userID, content, state}) {
         
         <p className='comment__content'>{content}</p>
       </div>
-      {state.user.id !== userID && 
+      {state.user.id !== userID && state.user.id &&
         (<div className='comment__upvoteContainer'>
           <img 
             src={thumbsUp}
