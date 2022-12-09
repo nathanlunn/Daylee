@@ -78,7 +78,7 @@ export default function PostHome({state, setState}) {
 
         <div className='topic__newCommentBottom'>
           <h3 
-            className={commentCharacterCount > 100 ? 'topic__commentCharacterCount red' :'topic__commentCharacterCount'}
+            className={commentCharacterCount > 100 ? 'topic__commentCharacterCount red' : (commentCharacterCount === 0 ? 'topic__commentCharacterCount grey' : 'topic__commentCharacterCount')}            
           >{`${commentCharacterCount} / 100`}</h3>
 
           <button
