@@ -21,8 +21,8 @@ router.post('/add', (req, res) => {
 
   db.query('SELECT * FROM upvotes WHERE user_id = $1 AND comment_id = $2;', [userID, commentID])
     .then(data => {
-      if(data.rows.length === 0) {
-        res.send('alreadt upvoted');
+      if(data.rows[0]) {
+        res.send('already upvoted');
         return;
       }
       db.query('INSERT INTO upvotes (user_id, comment_id) VALUES ($1, $2);', [userID, commentID])

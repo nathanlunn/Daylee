@@ -21,4 +21,8 @@
 }
 .comment .comment__container .comment__commentorInfo .comment__commentorName {
   font-size: 2rem;
+}
+
+.alreadyUpvoted {
+  opacity: 70%;
 }/*# sourceMappingURL=Comment.css.map */
