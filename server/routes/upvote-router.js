@@ -38,4 +38,17 @@ router.post('/add', (req, res) => {
     })
 })
 
+router.post('/delete', (req, res) => {
+  const commentID = req.body.commentID;
+  const userID = req.body.userID;
+
+  db.query('DELETE FROM upvotes WHERE comment_id = $1 AND user_id = $2;', [commentID, userID])
+    .then(data => {
+      res.status(200);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
+})
+
 module.exports = router;
