@@ -21,7 +21,7 @@ export default function Comment({commentID, userID, content, state}) {
                 setAlreadyUpvoted(true);
               }
 
-              axios.get(`http://localhost:8000/upvotes/${commentor.id}`)
+              axios.get(`http://localhost:8000/upvotes/${commentID}`)
                 .then(res => {
 
                 })

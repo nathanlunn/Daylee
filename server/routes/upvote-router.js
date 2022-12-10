@@ -16,9 +16,9 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  const commentorID = req.params.id;
+  const commentID = req.params.id;
 
-  db.query('SELECT * FROM upvotes WHERE user_id = $1;', [commentorID])
+  db.query('SELECT * FROM upvotes WHERE comment_id = $1;', [commentID])
     .then(data => {
       res.send(data.rows.length);
     })
