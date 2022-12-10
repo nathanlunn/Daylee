@@ -36,7 +36,6 @@ export default function Comment({commentID, userID, content, state}) {
     }
     axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
       .then(res => {
-        setAlreadyUpvoted(true);
         console.log('update already voted');
       })
       .catch(err => {
@@ -64,7 +63,10 @@ export default function Comment({commentID, userID, content, state}) {
           <img 
             src={alreadyUpvoted ? thumbsUpClicked : thumbsUp}
             className='comment__upvoteButton'
-            onClick={upvote}
+            onClick={() => {
+              upvote();
+              setAlreadyUpvoted(true);
+            }}
           />
         </div>)
       }
