@@ -36,6 +36,9 @@
       width: 2rem;
       align-self: center;
     }
+    .comment__upvoteButton:hover {
+      cursor: pointer;
+    }
   }
 
 }

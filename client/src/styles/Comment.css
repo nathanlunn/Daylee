@@ -33,6 +33,9 @@
   width: 2rem;
   align-self: center;
 }
+.comment .comment__upvoteContainer .comment__upvoteButton:hover {
+  cursor: pointer;
+}
 
 .alreadyUpvoted {
   opacity: 30%;
