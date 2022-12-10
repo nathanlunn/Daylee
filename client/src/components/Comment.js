@@ -30,13 +30,19 @@ export default function Comment({commentID, userID, content, state}) {
   }, []);
 
   const upvote = () => {
-    if(alreadyUpvoted) {
-      console.log('already upvoted');
-      return;
-    }
     axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
       .then(res => {
         console.log('update already voted');
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
+  }
+
+  const deleteUpvote = () => {
+    axios.post('http://localhost:8000/upvotes/delete', {commentID, userID: state.user.id})
+      .then(res => {
+        console.log('deleted');
       })
       .catch(err => {
         console.error(err.message);
@@ -64,6 +70,11 @@ export default function Comment({commentID, userID, content, state}) {
             src={alreadyUpvoted ? thumbsUpClicked : thumbsUp}
             className='comment__upvoteButton'
             onClick={() => {
+              if (alreadyUpvoted) {
+                deleteUpvote();
+                setAlreadyUpvoted(false);
+                return;
+              }
               upvote();
               setAlreadyUpvoted(true);
             }}
