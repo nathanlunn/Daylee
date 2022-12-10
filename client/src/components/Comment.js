@@ -23,7 +23,7 @@ export default function Comment({commentID, userID, content, state}) {
 
               axios.get(`http://localhost:8000/upvotes/${commentID}`)
                 .then(res => {
-
+                  setUpvoteCounter(res.data);
                 })
                 .catch(err => {
                   console.error(err.message);
@@ -77,7 +77,7 @@ export default function Comment({commentID, userID, content, state}) {
         (<div className='comment__upvoteContainer'>
           <h3
             className='comment__upvoteCounter'
-          ></h3>
+          >{`+${upvoteCounter}`}</h3>
           <img 
             src={alreadyUpvoted ? thumbsUpClicked : thumbsUp}
             className='comment__upvoteButton'
