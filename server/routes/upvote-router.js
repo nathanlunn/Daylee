@@ -15,6 +15,18 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+  const commentorID = req.params.id;
+
+  db.query('SELECT * FROM upvotes WHERE user_id = $1;', [commentorID])
+    .then(data => {
+      res.send(data.rows.length);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
+})
+
 router.post('/add', (req, res) => {
   const commentID = req.body.commentID;
   const userID = req.body.userID;

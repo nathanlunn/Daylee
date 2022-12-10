@@ -8,6 +8,7 @@ import thumbsUpClicked from '../assets/thumbsUpClicked.png';
 export default function Comment({commentID, userID, content, state}) {
   const [commentor, setCommentor] = useState({})
   const [alreadyUpvoted, setAlreadyUpvoted] = useState(false);
+  const [upvoteCounter, setUpvoteCounter] = useState(0);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/users/${userID}`)
@@ -19,6 +20,14 @@ export default function Comment({commentID, userID, content, state}) {
               if(res.data.length > 0) {
                 setAlreadyUpvoted(true);
               }
+
+              axios.get(`http://localhost:8000/upvotes/${commentor.id}`)
+                .then(res => {
+
+                })
+                .catch(err => {
+                  console.error(err.message);
+                })
             })
             .catch(err => {
               console.error(err.message);
@@ -66,6 +75,9 @@ export default function Comment({commentID, userID, content, state}) {
       </div>
       {state.user.id !== userID && state.user.id &&
         (<div className='comment__upvoteContainer'>
+          <h3
+            className='comment__upvoteCounter'
+          ></h3>
           <img 
             src={alreadyUpvoted ? thumbsUpClicked : thumbsUp}
             className='comment__upvoteButton'
