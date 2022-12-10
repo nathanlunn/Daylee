@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Image} from 'cloudinary-react';
 import '../styles/Comment.css';
 import thumbsUp from '../assets/thumbsUp.png';
-import thumbsDown from '../assets/thumbsDown.png';
+import thumbsUpClicked from '../assets/thumbsUpClicked.png';
 
 export default function Comment({commentID, userID, content, state}) {
   const [commentor, setCommentor] = useState({})
@@ -62,8 +62,8 @@ export default function Comment({commentID, userID, content, state}) {
       {state.user.id !== userID && state.user.id &&
         (<div className='comment__upvoteContainer'>
           <img 
-            src={thumbsUp}
-            className={alreadyUpvoted ? 'comment__upvoteButton alreadyUpvoted' :'comment__upvoteButton'}
+            src={alreadyUpvoted ? thumbsUpClicked : thumbsUp}
+            className='comment__upvoteButton'
             onClick={upvote}
           />
         </div>)
