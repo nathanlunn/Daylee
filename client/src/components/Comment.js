@@ -39,7 +39,7 @@ export default function Comment({commentID, userID, content, state}) {
       .catch(err => {
         console.error(err.message);
       })
-  }, [alreadyUpvoted])
+  }, [])
 
   const upvote = () => {
     axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
@@ -88,10 +88,12 @@ export default function Comment({commentID, userID, content, state}) {
               if (alreadyUpvoted) {
                 deleteUpvote();
                 setAlreadyUpvoted(false);
+                setUpvoteCounter(upvoteCounter - 1);
                 return;
               }
               upvote();
               setAlreadyUpvoted(true);
+              setUpvoteCounter(upvoteCounter + 1);
             }}
           />
         </div>)
