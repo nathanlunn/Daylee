@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
 
   db.query('SELECT * FROM upvotes WHERE comment_id = $1;', [commentID])
     .then(data => {
-      res.send(data.rows.length);
+      res.send(data.rows);
     })
     .catch(err => {
       console.error(err.message);

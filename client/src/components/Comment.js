@@ -20,14 +20,6 @@ export default function Comment({commentID, userID, content, state}) {
               if(res.data.length > 0) {
                 setAlreadyUpvoted(true);
               }
-
-              axios.get(`http://localhost:8000/upvotes/${commentID}`)
-                .then(res => {
-                  setUpvoteCounter(res.data);
-                })
-                .catch(err => {
-                  console.error(err.message);
-                })
             })
             .catch(err => {
               console.error(err.message);
@@ -37,6 +29,17 @@ export default function Comment({commentID, userID, content, state}) {
         console.error(err.message);
       })
   }, []);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/upvotes/${commentID}`)
+      .then(res => {
+        console.log(res.data.length);
+        setUpvoteCounter(res.data.length);
+      })
+      .catch(err => {
+        console.error(err.message);
+      })
+  }, [alreadyUpvoted])
 
   const upvote = () => {
     axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
