@@ -9,12 +9,13 @@
     width: 50%;
     max-width: 30rem;
     margin-bottom: 1rem;
-    box-shadow: 10px;
+    box-shadow: 0px 0px 15px 7px grey
   }
 
   .topic__title {
     font-family: 'Poppins', sans-serif;
     color: $richBlack;
+    margin: 0 2rem;
   }
 
   .topic__newCommentContainer {
