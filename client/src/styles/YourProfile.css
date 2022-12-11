@@ -48,7 +48,8 @@
 }
 .profile .profile__info {
   color: #02010A;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.7rem;
 }
 .profile .profile__imageContainer {
   margin-top: 0.2rem;
@@ -74,13 +75,14 @@
 .profile .profile__changeInput {
   border: none;
   border-bottom: solid 2px black;
+  resize: none;
   margin: 0.5rem 1rem;
   font-size: 1.5rem;
   background-color: rgba(255, 0, 0, 0);
   color: #02010A;
   width: 10rem;
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
 }
 .profile .profile__changeInput:hover {
   cursor: url("../assets/pen.png") 0 60, auto;
