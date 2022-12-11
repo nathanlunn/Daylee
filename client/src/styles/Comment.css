@@ -30,6 +30,7 @@
 .comment .comment__container .comment__content {
   background-color: transparent;
   font-size: 1.2rem;
+  font-family: "Barlow Condensed", sans-serif;
 }
 .comment .comment__upvoteContainer {
   background-color: transparent;
