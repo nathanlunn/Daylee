@@ -5,7 +5,9 @@
 }
 .topic .topic__image {
   width: 50%;
+  max-width: 30rem;
   margin-bottom: 1rem;
+  box-shadow: 10px;
 }
 .topic .topic__title {
   font-family: "Poppins", sans-serif;
@@ -22,6 +24,7 @@
   width: 100%;
   border: 2px solid #02010A;
   resize: none;
+  font-size: 1.2rem;
 }
 .topic .topic__newCommentContainer .topic__newCommentInput:hover {
   cursor: url("../assets/pen.png") 0 60, auto;

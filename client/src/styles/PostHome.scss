@@ -7,7 +7,9 @@
 
   .topic__image {
     width: 50%;
+    max-width: 30rem;
     margin-bottom: 1rem;
+    box-shadow: 10px;
   }
 
   .topic__title {
@@ -27,6 +29,7 @@
       width: 100%;
       border: 2px solid $richBlack;
       resize: none;
+      font-size: 1.2rem;
     }
     .topic__newCommentInput:hover {
       cursor: url('../assets/pen.png') 0 60, auto;
