@@ -28,6 +28,9 @@
   width: 100%;
   border: 2px solid #02010A;
   font-family: "Barlow Condensed", sans-serif;
+  background-color: #dedade;
+  box-shadow: -4px 4px 5px #adadad;
+  margin-bottom: 0.4rem;
   resize: none;
   font-size: 1.2rem;
 }
