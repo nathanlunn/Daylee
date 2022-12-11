@@ -6,13 +6,16 @@
 .topic .topic__image {
   width: 50%;
   max-width: 30rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
   box-shadow: 0px 0px 15px 7px grey;
 }
 .topic .topic__title {
   font-family: "Poppins", sans-serif;
   color: #02010A;
   margin: 0 2rem;
+  width: 50%;
+  max-width: 30rem;
+  background-color: transparent;
 }
 .topic .topic__newCommentContainer {
   margin: 1rem 0;
