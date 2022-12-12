@@ -55,7 +55,7 @@ router.post('/commentSearch', (req, res) => {
 
   db.query('SELECT * FROM comments WHERE user_id = $1 AND topic_id = $2;', [userID, topicID])
     .then(data => {
-      console.log(data.rows.length);
+      res.send(data.rows);
     })
     .catch(err => {
       console.error(err.message);

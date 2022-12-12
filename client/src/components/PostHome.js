@@ -17,7 +17,9 @@ export default function PostHome({state, setState}) {
     if (state.user.id && state.topic.id) {
       axios.post('http://localhost:8000/topics/commentSearch', {userID: state.user.id, topicID: state.topic.id})
         .then(res => {
-
+          if(res.data.length > 0) {
+            setAlreadyCommented(true);
+          }
         })
         .catch(err => {
           console.error(err.message);
@@ -74,6 +76,10 @@ export default function PostHome({state, setState}) {
       />
       
       <h2 className='topic__title'>{state.topic.title}</h2>
+
+      {alreadyCommented && state.user.id && <h3 className='topic__alert'>{"Thank You For Your Contribution! :)"}</h3>}
+      
+      {!state.user.id && <h3 className='topic__alert topic__alert--login'>{"Login to Comment On the Daylee Topic"}</h3>}
 
       {state.user.id && !alreadyCommented && <div className='topic__newCommentContainer'>
         <h3 className='topic__callToComment'>What Are Your Thoughts?</h3>
