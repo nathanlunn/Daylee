@@ -48,4 +48,12 @@ router.post('/comments/add', (req, res) => {
       console.error(err.message);
     })
 })
+
+router.post('/commentSearch', (req, res) => {
+  const userID = req.body.userID;
+  const topicID = req.body.topicID;
+
+  console.log(`userID: ${userID}, topicID: ${topicID}`);
+})
+
 module.exports = router;

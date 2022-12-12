@@ -14,13 +14,15 @@ export default function PostHome({state, setState}) {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    axios.post('http://localhost:8000/topics/commentSearch', {userID: state.user.id, topicID: state.topic.id})
-      .then(res => {
+    if (state.user.id && state.topic.id) {
+      axios.post('http://localhost:8000/topics/commentSearch', {userID: state.user.id, topicID: state.topic.id})
+        .then(res => {
 
-      })
-      .catch(err => {
-        console.error(err.message);
-      })
+        })
+        .catch(err => {
+          console.error(err.message);
+        })
+    }
   })
 
   useEffect(() => {
