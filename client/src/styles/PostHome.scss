@@ -29,6 +29,12 @@
     background-color: rgb(228, 224, 227);
   }
 
+  .topic__alert--login {
+    border: solid 2px rgb(143, 143, 10);
+    color: rgb(143, 143, 10);
+    background-color: white;
+  }
+
   .topic__newCommentContainer {
     margin: 1rem 0;
     width: 40%;
