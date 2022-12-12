@@ -53,7 +53,13 @@ router.post('/commentSearch', (req, res) => {
   const userID = req.body.userID;
   const topicID = req.body.topicID;
 
-  console.log(`userID: ${userID}, topicID: ${topicID}`);
+  db.query('SELECT * FROM comments WHERE user_id = $1 AND topic_id = $2;', [userID, topicID])
+    .then(data => {
+      console.log(data.rows.length);
+    })
+    .catch(err => {
+      console.error(err.message);
+    })
 })
 
 module.exports = router;
