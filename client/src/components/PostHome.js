@@ -10,6 +10,7 @@ export default function PostHome({state, setState}) {
   const [newComment, setNewComment] = useState('');
   const [commentCharacterCount, setCommentCharacterCount] = useState(0);
   const [commentReload, setCommentReload] = useState(0);
+  const [alreadyCommented, setAlreadyCommented] = useState(false);
   // const navigate = useNavigate();
 
   useEffect(() => {
@@ -62,7 +63,7 @@ export default function PostHome({state, setState}) {
       
       <h2 className='topic__title'>{state.topic.title}</h2>
 
-      <div className='topic__newCommentContainer'>
+      {state.user.id && !alreadyCommented && <div className='topic__newCommentContainer'>
         <h3 className='topic__callToComment'>What Are Your Thoughts?</h3>
 
         <textarea 
@@ -86,7 +87,7 @@ export default function PostHome({state, setState}) {
             onClick={addComment}
           >Comment</button>
         </div>
-      </div>
+      </div>}
 
       <div className='topic__commentsList'>
         {commentList}
