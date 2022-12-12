@@ -17,6 +17,13 @@
   max-width: 30rem;
   background-color: transparent;
 }
+.topic .topic__alert {
+  margin: 1rem;
+  padding: 1rem;
+  border: solid 2px rgb(33, 148, 33);
+  color: rgb(33, 148, 33);
+  background-color: rgb(228, 224, 227);
+}
 .topic .topic__newCommentContainer {
   margin: 1rem 0;
   width: 40%;
