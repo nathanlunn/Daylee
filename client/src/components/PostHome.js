@@ -75,7 +75,7 @@ export default function PostHome({state, setState}) {
         publicId={state.topic.image}
       />
       
-      <h2 className='topic__title'>{state.topic.title}</h2>
+      <h2 className='topic__title'>{state.topic.title}?</h2>
 
       {alreadyCommented && state.user.id && <h3 className='topic__alert'>{"Thank You For Your Contribution! :)"}</h3>}
       
