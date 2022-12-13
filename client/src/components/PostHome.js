@@ -69,43 +69,46 @@ export default function PostHome({state, setState}) {
 
   return (
     <div className='topic'>
-      <Image 
-        className='topic__image'
-        cloudName='dnggclzfd'
-        publicId={state.topic.image}
-      />
-      
-      <h2 className='topic__title'>{state.topic.title}?</h2>
+      <div className='topic__container'>
 
-      {alreadyCommented && state.user.id && <h3 className='topic__alert'>{"Thank You For Your Contribution! :)"}</h3>}
-      
-      {!state.user.id && <h3 className='topic__alert topic__alert--login'>{"Login to Comment On The Daylee Topic"}</h3>}
+        <Image 
+          className='topic__image'
+          cloudName='dnggclzfd'
+          publicId={state.topic.image}
+        />
+        
+        <h2 className='topic__title'>{state.topic.title}?</h2>
 
-      {state.user.id && !alreadyCommented && <div className='topic__newCommentContainer'>
-        <h3 className='topic__callToComment'>What Are Your Thoughts?</h3>
+        {alreadyCommented && state.user.id && <h3 className='topic__alert'>{"Thank You For Your Contribution! :)"}</h3>}
+        
+        {!state.user.id && <h3 className='topic__alert topic__alert--login'>{"Login to Comment On The Daylee Topic"}</h3>}
 
-        <textarea 
-          className='topic__newCommentInput'
-          value={newComment}
-          onChange={e => {
-            setNewComment(e.target.value);
-            setCommentCharacterCount(e.target.value.length);
-            setCommentReload(commentReload + 1);
-          }}
+        {state.user.id && !alreadyCommented && <div className='topic__newCommentContainer'>
+          <h3 className='topic__callToComment'>What Are Your Thoughts?</h3>
 
-        ></textarea>
+          <textarea 
+            className='topic__newCommentInput'
+            value={newComment}
+            onChange={e => {
+              setNewComment(e.target.value);
+              setCommentCharacterCount(e.target.value.length);
+              setCommentReload(commentReload + 1);
+            }}
 
-        <div className='topic__newCommentBottom'>
-          <h3 
-            className={commentCharacterCount > 100 ? 'topic__commentCharacterCount red' : (commentCharacterCount === 0 ? 'topic__commentCharacterCount grey' : 'topic__commentCharacterCount')}            
-          >{`${commentCharacterCount} / 100`}</h3>
+          ></textarea>
 
-          <button
-            className={(commentCharacterCount === 0 || commentCharacterCount > 100) ? 'topic__commentButton unavailable' : 'topic__commentButton'}
-            onClick={addComment}
-          >Comment</button>
-        </div>
-      </div>}
+          <div className='topic__newCommentBottom'>
+            <h3 
+              className={commentCharacterCount > 100 ? 'topic__commentCharacterCount red' : (commentCharacterCount === 0 ? 'topic__commentCharacterCount grey' : 'topic__commentCharacterCount')}            
+            >{`${commentCharacterCount} / 100`}</h3>
+
+            <button
+              className={(commentCharacterCount === 0 || commentCharacterCount > 100) ? 'topic__commentButton unavailable' : 'topic__commentButton'}
+              onClick={addComment}
+            >Comment</button>
+          </div>
+        </div>}
+      </div>
 
       <div className='topic__commentsList'>
         {commentList}

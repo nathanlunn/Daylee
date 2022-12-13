@@ -2,8 +2,16 @@
 
 .topic {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
+  width: 100%;
+
+  .topic__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
 
   .topic__image {
     width: 50%;
@@ -97,6 +105,7 @@
 
   .topic__commentsList {
     width: 50%;
+    // padding :5rem;
   }
 }
 

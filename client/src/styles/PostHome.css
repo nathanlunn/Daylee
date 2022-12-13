@@ -1,7 +1,13 @@
 .topic {
   display: flex;
+  align-items: center;
+  width: 100%;
+}
+.topic .topic__container {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50%;
 }
 .topic .topic__image {
   width: 50%;
