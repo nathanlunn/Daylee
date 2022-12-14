@@ -76,7 +76,7 @@ export default function Comment({commentID, userID, content, state}) {
         
         <p className='comment__content'>{content}</p>
       </div>
-      {state.user.id !== userID && state.user.id &&
+      {state.user.id &&
         (<div className='comment__upvoteContainer'>
           <h3
             className='comment__upvoteCounter'
