@@ -93,6 +93,11 @@
   align-items: center;
 }
 
+@media (max-width: 60rem) {
+  .topic {
+    flex-direction: column;
+  }
+}
 .red {
   color: red;
 }
