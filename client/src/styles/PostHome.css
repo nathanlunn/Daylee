@@ -97,6 +97,12 @@
   .topic {
     flex-direction: column;
   }
+  .topic .topic__container {
+    width: 100%;
+  }
+  .topic .topic__commentsList {
+    width: 100%;
+  }
 }
 .red {
   color: red;

@@ -115,7 +115,15 @@
 @media (max-width: 60rem) {
   .topic {
     flex-direction: column;
-  }
+
+      .topic__container {
+        width: 100%;
+      }
+
+      .topic__commentsList {
+        width: 100%
+      }
+    }
 }
 
 .red {
