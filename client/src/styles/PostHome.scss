@@ -47,7 +47,7 @@
 
   .topic__newCommentContainer {
     margin: 1rem 0;
-    width: 40%;
+    width: 70%;
 
     .topic__callToComment {
       margin-bottom: .5rem;
@@ -118,6 +118,10 @@
 
       .topic__container {
         width: 100%;
+
+        .topic__newCommentContainer {
+          width: 40%
+        }
       }
 
       .topic__commentsList {
