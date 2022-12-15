@@ -11,6 +11,8 @@
     flex-direction: column;
     align-items: center;
     width: 50%;
+    margin-top: 6.5rem;
+    align-self: flex-start;
   }
 
   .topic__image {
@@ -109,6 +111,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5.5rem;
   }
 }
 
@@ -120,12 +123,13 @@
         width: 100%;
 
         .topic__newCommentContainer {
-          width: 40%
+          width: 40%;
         }
       }
 
       .topic__commentsList {
-        width: 100%
+        width: 100%;
+        margin-top: 0;
       }
     }
 }

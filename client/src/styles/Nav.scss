@@ -4,6 +4,9 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
   .nav__name {
     width: 5rem;

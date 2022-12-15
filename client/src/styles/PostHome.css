@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
+  margin-top: 6.5rem;
+  align-self: flex-start;
 }
 .topic .topic__image {
   width: 80%;
@@ -91,6 +93,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5.5rem;
 }
 
 @media (max-width: 60rem) {
@@ -105,6 +108,7 @@
   }
   .topic .topic__commentsList {
     width: 100%;
+    margin-top: 0;
   }
 }
 .red {
