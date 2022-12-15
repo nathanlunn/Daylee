@@ -23,7 +23,7 @@
   -webkit-animation: spinner 1.5s linear infinite;
           animation: spinner 1.5s linear infinite;
   align-self: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
   position: absolute;
   top: 1.6rem;
 }
@@ -34,7 +34,7 @@
 }
 
 .login {
-  margin-top: 2rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
