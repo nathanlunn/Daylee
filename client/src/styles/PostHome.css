@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: flex-end;
 }
 .topic .topic__container {
   display: flex;
@@ -10,6 +11,8 @@
   width: 50%;
   margin-top: 6.5rem;
   align-self: flex-start;
+  position: fixed;
+  left: 0;
 }
 .topic .topic__image {
   width: 80%;
@@ -102,6 +105,7 @@
   }
   .topic .topic__container {
     width: 100%;
+    position: relative;
   }
   .topic .topic__container .topic__newCommentContainer {
     width: 40%;
@@ -109,6 +113,7 @@
   .topic .topic__commentsList {
     width: 100%;
     margin-top: 0;
+    align-self: none;
   }
 }
 .red {
