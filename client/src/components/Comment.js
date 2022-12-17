@@ -62,7 +62,7 @@ export default function Comment({commentID, userID, content, state}) {
   }
 
   return (
-    <div className='comment'>
+    <div className={state.user.id === userID ? 'comment yours' : 'comment'}>
       <div className='comment__container'>
         <div className='comment__commentorInfo'>
           <Image
