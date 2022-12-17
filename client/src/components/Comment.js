@@ -76,12 +76,13 @@ export default function Comment({commentID, userID, content, state}) {
         
         <p className='comment__content'>{content}</p>
       </div>
-      {state.user.id &&
-        (<div className='comment__upvoteContainer'>
-          <h3
-            className='comment__upvoteCounter'
-          >{`+${upvoteCounter}`}</h3>
-          <img 
+      
+      <div className='comment__upvoteContainer'>
+        <h3
+          className='comment__upvoteCounter'
+        >{`+${upvoteCounter}`}</h3>
+        {state.user.id && 
+          (<img 
             src={alreadyUpvoted ? thumbsUpClicked : thumbsUp}
             className='comment__upvoteButton'
             onClick={() => {
@@ -95,9 +96,10 @@ export default function Comment({commentID, userID, content, state}) {
               setAlreadyUpvoted(true);
               setUpvoteCounter(upvoteCounter + 1);
             }}
-          />
-        </div>)
-      }
+          />)
+        }
+      </div>
+      
     </div>
   )
 }
