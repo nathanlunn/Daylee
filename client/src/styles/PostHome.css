@@ -106,6 +106,7 @@
   .topic .topic__container {
     width: 100%;
     position: relative;
+    left: none;
   }
   .topic .topic__container .topic__newCommentContainer {
     width: 40%;
