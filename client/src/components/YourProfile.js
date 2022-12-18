@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import '../styles/YourProfile.css';
 import {Image} from 'cloudinary-react';
 import axios from 'axios';
@@ -13,6 +13,7 @@ export default function YourProfile({state, setState}) {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('none');
   const [bioCharacterCount, setBioCharacterCount] = useState(state.user.bio.length);
+  const bottomRef = useRef();
 
   const uploadImage = (image) => {
     const formData = new FormData();
@@ -111,6 +112,10 @@ export default function YourProfile({state, setState}) {
       })
   };
 
+  const scrollDown = () => {
+    bottomRef.current.scrollIntoView();
+  }
+
   return (
     <div className='profile'>
       {loading && <div className='profile__spinner'></div>}
@@ -122,7 +127,7 @@ export default function YourProfile({state, setState}) {
       <div className='profile__imageContainer'>
         {changeImage ? (
           <div className='profile__imageEdit'>
-            <div className='profile__changePictureContainer hide'>
+            <div className='profile__changePictureContainer hide profile__changePictureContainerDud'>
               <input
                 className='profile__chooseNewPicture'
                 type='file'
@@ -295,11 +300,15 @@ export default function YourProfile({state, setState}) {
 
             <i
               class="fa-solid fa-pen-to-square profile__icon"
-              onClick={() => setChangeBio(true)}
+              onClick={() => {
+                setChangeBio(true);
+                scrollDown();        
+              }}
             ></i>
           </div>
         </div>
       )}
+    <div className="bottomContainerElement" ref={bottomRef} />
     </div>
   )
 }

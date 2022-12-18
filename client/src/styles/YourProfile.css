@@ -56,10 +56,11 @@
 .profile .profile__imageContainer {
   margin-top: 0.2rem;
   display: flex;
+  justify-content: center;
 }
 .profile .profile__imageContainer .profile__image {
-  width: 15rem;
-  height: 15rem;
+  width: 50%;
+  height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -144,6 +145,16 @@
   align-self: flex-end;
 }
 
+@media (max-width: 60rem) {
+  .profile__imageEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile__imageEdit .profile__changePictureContainerDud {
+    position: absolute;
+  }
+}
 .red {
   color: rgb(193, 38, 38);
 }/*# sourceMappingURL=YourProfile.css.map */
