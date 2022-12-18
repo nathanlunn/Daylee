@@ -15,7 +15,7 @@ export default function PostHome({state, setState}) {
 
   useEffect(() => {
     if (state.user.id && state.topic.id) {
-      axios.post('http://localhost:8000/topics/commentSearch', {userID: state.user.id, topicID: state.topic.id})
+      axios.post('https://daylee-backend.onrender.com/topics/commentSearch', {userID: state.user.id, topicID: state.topic.id})
         .then(res => {
           if(res.data.length > 0) {
             setAlreadyCommented(true);
@@ -28,7 +28,7 @@ export default function PostHome({state, setState}) {
   })
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/topics/comments/${state.topic.id}`)
+    axios.get(`https://daylee-backend.onrender.com/topics/comments/${state.topic.id}`)
       .then(res => {
         setComments(res.data.sort((a, b) => {return b.id - a.id}));
       })
@@ -42,7 +42,7 @@ export default function PostHome({state, setState}) {
       return;
     }
 
-    axios.post('http://localhost:8000/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
+    axios.post('https://daylee-backend.onrender.com/topics/comments/add', {topicID: state.topic.id, userID: state.user.id, comment: newComment})
       .then(res => {
         const newComment = res.data;
         comments.unshift(newComment);

@@ -34,7 +34,7 @@ export default function Login({state, setState}) {
       }, 3000);
       return;
     }
-    axios.post('http://localhost:8000/users/login', {email, password})
+    axios.post('https://daylee-backend.onrender.com/users/login', {email, password})
       .then(res => {
         if(typeof(res.data) === 'string') {
           errorAfterLoading(res.data);

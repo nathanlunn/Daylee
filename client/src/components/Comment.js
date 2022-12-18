@@ -11,11 +11,11 @@ export default function Comment({commentID, userID, content, state}) {
   const [upvoteCounter, setUpvoteCounter] = useState(0);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/users/${userID}`)
+    axios.get(`https://daylee-backend.onrender.com/users/${userID}`)
       .then(res => {
         setCommentor(res.data);
 
-        axios.post(`http://localhost:8000/upvotes`, {commentID, userID: state.user.id})
+        axios.post(`https://daylee-backend.onrender.com/upvotes`, {commentID, userID: state.user.id})
             .then(res => {
               if(res.data.length > 0) {
                 setAlreadyUpvoted(true);
@@ -31,7 +31,7 @@ export default function Comment({commentID, userID, content, state}) {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/upvotes/${commentID}`)
+    axios.get(`https://daylee-backend.onrender.com/upvotes/${commentID}`)
       .then(res => {
         console.log(res.data.length);
         setUpvoteCounter(res.data.length);
@@ -42,7 +42,7 @@ export default function Comment({commentID, userID, content, state}) {
   }, [])
 
   const upvote = () => {
-    axios.post('http://localhost:8000/upvotes/add', {commentID, userID: state.user.id})
+    axios.post('https://daylee-backend.onrender.com/upvotes/add', {commentID, userID: state.user.id})
       .then(res => {
         console.log('update already voted');
       })
@@ -52,7 +52,7 @@ export default function Comment({commentID, userID, content, state}) {
   }
 
   const deleteUpvote = () => {
-    axios.post('http://localhost:8000/upvotes/delete', {commentID, userID: state.user.id})
+    axios.post('https://daylee-backend.onrender.com/upvotes/delete', {commentID, userID: state.user.id})
       .then(res => {
         console.log('deleted');
       })

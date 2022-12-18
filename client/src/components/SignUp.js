@@ -78,7 +78,7 @@ export default function SignUp({state, setState}) {
     }
     setLoading(true);
     const signupObject = {name, email, password, bio, imageURL: (imageURL || defaultProfilePictureURL)};
-    axios.post('http://localhost:8000/users/signup', signupObject)
+    axios.post('https://daylee-backend.onrender.com/users/signup', signupObject)
       .then(res => {
         if(typeof(res.data) === 'string') {
           errorAfterLoading(res.data);

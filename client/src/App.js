@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     const today = new Date(Date.now()).toString().slice(0, 15);
     setState(prev => ({...prev, dateToday: today}));
-    axios.post('http://localhost:8000/topics/today', {today})
+    axios.post('https://daylee-backend.onrender.com/topics/today', {today})
       .then(res => {
         setState(prev => ({...prev, topic: res.data}))
       })

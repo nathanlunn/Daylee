@@ -78,7 +78,7 @@ export default function YourProfile({state, setState}) {
       return;
     }
 
-    axios.post(`http://localhost:8000/users/change/${type}`, {content, userID: state.user.id})
+    axios.post(`https://daylee-backend.onrender.com/users/change/${type}`, {content, userID: state.user.id})
       .then(res => {
         const result = res.data[0];
         setLoading(true);
