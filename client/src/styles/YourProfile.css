@@ -154,6 +154,14 @@
   .profile__imageEdit .profile__changePictureContainerDud {
     position: absolute;
   }
+  .profile__imageEdit .profile__changePictureContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile__nameContentContainer .profile__buttonContainerDud {
+    position: absolute;
+  }
 }
 .red {
   color: rgb(193, 38, 38);

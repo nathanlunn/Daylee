@@ -166,6 +166,21 @@
     .profile__changePictureContainerDud {
       position: absolute;
     }
+
+    .profile__changePictureContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .profile__nameContentContainer {
+    // flex-direction: column;
+    // align-items: center;
+
+    .profile__buttonContainerDud {
+      position: absolute;
+    }
   }
 }
 

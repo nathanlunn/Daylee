@@ -195,7 +195,7 @@ export default function YourProfile({state, setState}) {
             <h5 className='profile__title'>name:</h5>
 
             <div className='profile__nameContentContainer'>
-            <div className='profile__buttonContainer hide'>
+              <div className='profile__buttonContainer hide profile__buttonContainerDud'>
                 <button
                   className='profile__button profile__button--cancel'
                 >cancel</button>
