@@ -144,6 +144,12 @@
 .profile .profile__bioContainer .profile__editBioContainer .profile__bioCharacterCount {
   align-self: flex-end;
 }
+.profile .profile__bioContentContainerNoEdit {
+  display: flex;
+}
+.profile .profile__bioContentContainerNoEdit .profile__info--bio {
+  width: 15rem;
+}
 
 @media (max-width: 60rem) {
   .profile__imageEdit {
@@ -159,8 +165,12 @@
     flex-direction: column;
     align-items: center;
   }
-  .profile__nameContentContainer .profile__buttonContainerDud {
+  .profile__buttonContainerDud {
     position: absolute;
+  }
+  .profile__bioContentContainer {
+    flex-direction: column;
+    align-items: center;
   }
 }
 .red {
