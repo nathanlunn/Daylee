@@ -33,7 +33,9 @@
   width: 100%;
 
   .signup__paddingContainer {
-    width: 33%
+    width: 33%;
+    display: flex;
+    flex-direction: column;
   }
 
   .signup__inputsContainer {
@@ -119,6 +121,18 @@
       width: 10rem;
       height: 10rem;
       object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 60rem) {
+  .signup {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .signup__pictureContainer {
+      margin: 0;
+      padding: 0;
     }
   }
 }

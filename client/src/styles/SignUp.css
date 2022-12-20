@@ -40,6 +40,8 @@
 }
 .signup .signup__paddingContainer {
   width: 33%;
+  display: flex;
+  flex-direction: column;
 }
 .signup .signup__inputsContainer {
   display: flex;
@@ -118,6 +120,16 @@
      object-fit: cover;
 }
 
+@media (max-width: 60rem) {
+  .signup {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .signup .signup__pictureContainer {
+    margin: 0;
+    padding: 0;
+  }
+}
 .hide {
   opacity: 0;
 }
