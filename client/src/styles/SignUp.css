@@ -55,6 +55,10 @@
   color: #02010A;
   font-family: "Padauk", sans-serif;
 }
+.signup .signup__titleMobile {
+  opacity: 0;
+  position: absolute;
+}
 .signup .signup__input {
   border: none;
   border-bottom: solid 2px black;
@@ -124,6 +128,14 @@
   .signup {
     flex-direction: column-reverse;
     align-items: center;
+  }
+  .signup .signup__titleMobile {
+    opacity: 100;
+    position: relative;
+  }
+  .signup .signup__titleDesktop {
+    opacity: 0;
+    position: absolute;
   }
   .signup .signup__pictureContainer {
     margin: 0;

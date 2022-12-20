@@ -52,6 +52,11 @@
     font-family: 'Padauk', sans-serif;
   }
 
+  .signup__titleMobile {
+    opacity: 0;
+    position: absolute;
+  }
+
   .signup__input {
     border: none;
     border-bottom: solid 2px black; 
@@ -129,6 +134,16 @@
   .signup {
     flex-direction: column-reverse;
     align-items: center;
+
+    .signup__titleMobile {
+      opacity: 100;
+      position: relative;
+    }
+
+    .signup__titleDesktop {
+      opacity: 0;
+      position: absolute;
+    }
 
     .signup__pictureContainer {
       margin: 0;
