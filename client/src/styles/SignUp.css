@@ -88,6 +88,8 @@
 }
 .signup .signup__submit {
   margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 10rem;
   border: solid 2px #02010A;
   box-shadow: -2px 2px #02010A;
   font-size: 2rem;
