@@ -43,6 +43,12 @@
   display: flex;
   flex-direction: column;
 }
+.signup .signup__notImageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 .signup .signup__inputsContainer {
   display: flex;
   flex-direction: column;

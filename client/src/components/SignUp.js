@@ -102,69 +102,71 @@ export default function SignUp({state, setState}) {
     <div className='signup'>
       <div className='signup__paddingContainer'></div>
 
-      <div className='signup__inputsContainer'>
-        {loading && <div className='signup__spinner'></div>}
+      <div className='signup__notImageContainer'>
+        <div className='signup__inputsContainer'>
+          {loading && <div className='signup__spinner'></div>}
 
-        <h2
-          className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
-        >{errorMessage}</h2>
+          <h2
+            className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
+          >{errorMessage}</h2>
 
-        <h2 className='signup__title signup__titleDesktop'>Sign Up:</h2>
+          <h2 className='signup__title signup__titleDesktop'>Sign Up:</h2>
 
-        <input
-          className='signup__input singup__input--name'
-          value={name}
-          onChange={e => {setName(e.target.value)}}
-          placeholder='name'
-          type='text'
-          required
-        ></input>
+          <input
+            className='signup__input singup__input--name'
+            value={name}
+            onChange={e => {setName(e.target.value)}}
+            placeholder='name'
+            type='text'
+            required
+          ></input>
 
-        <input
-          className='signup__input signup__input--email'
-          value={email}
-          onChange={e => {setEmail(e.target.value)}}
-          placeholder='email'
-          type='email'
-          required
-        ></input>
+          <input
+            className='signup__input signup__input--email'
+            value={email}
+            onChange={e => {setEmail(e.target.value)}}
+            placeholder='email'
+            type='email'
+            required
+          ></input>
 
-        <input
-          className='signup__input signup__input--password'
-          value={password}
-          onChange={e => {setPassword(e.target.value)}}
-          placeholder='password'
-          type='password'
-          required
-        ></input>
+          <input
+            className='signup__input signup__input--password'
+            value={password}
+            onChange={e => {setPassword(e.target.value)}}
+            placeholder='password'
+            type='password'
+            required
+          ></input>
 
-        <input
-          className='signup__input signup__input--confirmPassword'
-          value={confirmPassword}
-          onChange={e => {setConfirmPassword(e.target.value)}}
-          placeholder='confirm password'
-          type='password'
-          required
-        ></input>
+          <input
+            className='signup__input signup__input--confirmPassword'
+            value={confirmPassword}
+            onChange={e => {setConfirmPassword(e.target.value)}}
+            placeholder='confirm password'
+            type='password'
+            required
+          ></input>
 
-        <textarea
-          className='signup__input signup__input--bio'
-          value={bio}
-          onChange={e => {
-            setBio(e.target.value);
-            setBioCharacterCount(e.target.value.length);
-          }}
-          placeholder='write a short bio for yourself.'
-          type='text'
-        ></textarea>
-        <h3 
-          className={bioCharacterCount > 100 ? 'signup__bioCharacterCount red' :'signup__bioCharacterCount'}
-        >{`${bioCharacterCount} / 100`}</h3>
+          <textarea
+            className='signup__input signup__input--bio'
+            value={bio}
+            onChange={e => {
+              setBio(e.target.value);
+              setBioCharacterCount(e.target.value.length);
+            }}
+            placeholder='write a short bio for yourself.'
+            type='text'
+          ></textarea>
+          <h3 
+            className={bioCharacterCount > 100 ? 'signup__bioCharacterCount red' :'signup__bioCharacterCount'}
+          >{`${bioCharacterCount} / 100`}</h3>
 
-        <button
-          className='signup__submit'
-          onClick={signup}
-        >Sign Up</button>
+          <button
+            className='signup__submit'
+            onClick={signup}
+          >Sign Up</button>
+        </div>
       </div>
 
       <div className='signup__pictureContainer'>
