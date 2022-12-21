@@ -103,13 +103,34 @@ export default function SignUp({state, setState}) {
       <div className='signup__paddingContainer'></div>
 
       <div className='signup__notImageContainer'>
+        {loading && <div className='signup__spinner'></div>}
+
+        <h2
+          className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
+        >{errorMessage}</h2>
+          
+        <div className='signup__pictureContainer signup__pictureContainerMobile'>
+          <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
+          <div className='signup__profilePictureContainer'>
+            <input
+              className='signup__findImageButtons'
+              type='file'
+              onChange={(e) => {
+                uploadImage(e.target.files[0])
+              }}
+            ></input>
+
+            <div className='signup__imageContainer'>
+              <Image
+                className='signup__profilePicturePreview'
+                cloudName='dnggclzfd'
+                publicId={imageURL || defaultProfilePictureURL}
+              />
+            </div>
+          </div>
+        </div>  
+
         <div className='signup__inputsContainer'>
-          {loading && <div className='signup__spinner'></div>}
-
-          <h2
-            className={errorMessage === 'none' ? 'signup__error hide' : 'signup__error'}
-          >{errorMessage}</h2>
-
           <h2 className='signup__title signup__titleDesktop'>Sign Up:</h2>
 
           <input
@@ -188,7 +209,7 @@ export default function SignUp({state, setState}) {
             />
           </div>
         </div>
-      </div>
+      </div>  
 
       <h2 className='signup__title signup__titleMobile'>Sign Up:</h2>
     </div>

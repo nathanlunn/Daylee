@@ -137,6 +137,12 @@
       object-fit: cover;
     }
   }
+
+  .signup__pictureContainerMobile {
+    opacity:0;
+    position: absolute;
+    pointer-events: none;
+  }
 }
 
 @media (max-width: 60rem) {
@@ -157,6 +163,12 @@
     .signup__pictureContainer {
       margin: 0;
       padding: 0;
+    }
+
+    .signup__pictureContainerMobile {
+      opacity:100;
+      position: relative;
+      pointer-events: all;
     }
   }
 }
