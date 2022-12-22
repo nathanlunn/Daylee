@@ -190,7 +190,7 @@ export default function SignUp({state, setState}) {
         </div>
       </div>
 
-      <div className='signup__pictureContainer'>
+      <div className='signup__pictureContainer signup__pictureContainerDesktop'>
         <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
         <div className='signup__profilePictureContainer'>
           <input
@@ -209,9 +209,7 @@ export default function SignUp({state, setState}) {
             />
           </div>
         </div>
-      </div>  
-
-      <h2 className='signup__title signup__titleMobile'>Sign Up:</h2>
+      </div>
     </div>
   )
 }

@@ -158,6 +158,7 @@
     .signup__titleDesktop {
       opacity: 0;
       position: absolute;
+      z-index: -1000;
     }
 
     .signup__pictureContainer {
@@ -169,6 +170,12 @@
       opacity:100;
       position: relative;
       pointer-events: all;
+    }
+    
+    .signup__pictureContainerDesktop {
+      opacity:0;
+      position: absolute;
+      pointer-events: none;
     }
   }
 }
