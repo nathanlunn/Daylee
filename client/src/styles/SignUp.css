@@ -57,6 +57,7 @@
 }
 .signup .signup__title {
   font-size: 3rem;
+  width: 12rem;
   margin: 0.5rem 0 0.5rem;
   color: #02010A;
   font-family: "Padauk", sans-serif;

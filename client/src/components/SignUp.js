@@ -110,7 +110,10 @@ export default function SignUp({state, setState}) {
         >{errorMessage}</h2>
           
         <div className='signup__pictureContainer signup__pictureContainerMobile'>
+          <h2 className='signup__title signup__titleMobile'>Sign Up:</h2>
+
           <h2 className='signup__pickProfilePictureTitle'>Select a Profile Image:</h2>
+          
           <div className='signup__profilePictureContainer'>
             <input
               className='signup__findImageButtons'
